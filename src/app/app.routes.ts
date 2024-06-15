@@ -12,6 +12,7 @@ import { AgregarGrupoComponent } from './components/agregar-grupo/agregar-grupo.
 import { AgregarMontoPrestamoComponent } from './components/agregar-monto-prestamo/agregar-monto-prestamo.component';
 import { AgregarPrestatarioComponent } from './components/agregar-prestatario/agregar-prestatario.component';
 import { AgregarSolicitudPrestamoComponent } from './components/agregar-solicitud-prestamo/agregar-solicitud-prestamo.component';
+import { CrudEjemploComponent } from './components/crud-ejemplo/crud-ejemplo.component';
 
 
 
@@ -26,6 +27,7 @@ export const routes: Routes = [
     {path:"verRegistroSolicitudPrestamo", component:AgregarSolicitudPrestamoComponent },
     {path:"verRegistroEjemplo", component:AgregarEjemploComponent },
   
+    {path:"verCrudEjemplo", component:CrudEjemploComponent },
   
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },
