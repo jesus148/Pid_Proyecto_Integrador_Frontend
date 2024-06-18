@@ -1,9 +1,9 @@
 .mat-column-idEjemplo {
-    flex: 0 0 10%;
+    flex: 0 0 8%;
 }
 
 .mat-column-descripcion {
-    flex: 0 0 15%;
+    flex: 0 0 10%;
 }
 
 .mat-column-dias {
@@ -27,5 +27,5 @@
 }
 
 .mat-column-acciones {
-    flex: 0 0 10%;
+    flex: 0 0 15%;
 }
