@@ -13,6 +13,7 @@ import { AgregarMontoPrestamoComponent } from './components/agregar-monto-presta
 import { AgregarPrestatarioComponent } from './components/agregar-prestatario/agregar-prestatario.component';
 import { AgregarSolicitudPrestamoComponent } from './components/agregar-solicitud-prestamo/agregar-solicitud-prestamo.component';
 import { CrudEjemploComponent } from './components/crud-ejemplo/crud-ejemplo.component';
+import { ConsultaEjemploComponent } from './components/consulta-ejemplo/consulta-ejemplo.component';
 
 
 
@@ -28,7 +29,8 @@ export const routes: Routes = [
     {path:"verRegistroEjemplo", component:AgregarEjemploComponent },
   
     {path:"verCrudEjemplo", component:CrudEjemploComponent },
-  
+    {path:"verConsultaEjemplo", component: ConsultaEjemploComponent },
+    
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }

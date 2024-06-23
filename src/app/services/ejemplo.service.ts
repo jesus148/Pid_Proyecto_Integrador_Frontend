@@ -6,6 +6,7 @@ import { Ejemplo } from '../models/ejemplo.model';
 
 const baseUrlPrueba = AppSettings.API_ENDPOINT + '/ejemplo';
 const baseUrlCrudPrueba = AppSettings.API_ENDPOINT + '/crudEjemplo';
+const baseUrlConsultaPrueba = AppSettings.API_ENDPOINT + '/consultaEjemplo';
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +45,9 @@ export class EjemploService {
     return this.http.get(baseUrlCrudPrueba+"/listaEjemploPorNombreLike/"+ filtro);
   }
 
+  //PC3: Consulta de Ejemplo
+  consultaEjemplo(descripcion: string, idPais: string, estado: number, longitud: number, idDias: string): Observable<any>{
+    console.log('>>> Service >> consultaEjemplo [inicio]' + descripcion);
+    return this.http.get<any>(baseUrlConsultaPrueba+'/consultaComplejoEjemplo?descripcion='+descripcion + "&idPais="+idPais + "&estado="+estado + "&longitud="+longitud + "&idDias="+idDias);
+  }
 }
