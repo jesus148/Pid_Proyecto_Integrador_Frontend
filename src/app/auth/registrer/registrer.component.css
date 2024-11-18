@@ -7,10 +7,17 @@
   background-size: cover;
 }
 
+.boton_Registrar{
+  width: 180px;
+  border-radius: 5px;
+  height: 40px;
+}
+
 
 .container{
   width: 30% !important;
   border-radius: 12px;
+  height: 720px !important;
 }
 
 .container  h3{

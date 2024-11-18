@@ -30,6 +30,7 @@
   width: 150px!important;
   height: 40px;
   border-radius: 5px;
+  font-size: 18px;
 }
 .container p , a{
   font-family: "Nunito Sans", sans-serif;

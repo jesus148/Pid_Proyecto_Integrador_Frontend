@@ -3,7 +3,7 @@
 
   <div class="container bg-white">
     <div class="d-flex justify-content-center">
-      <form action="" class="p-2 w-75">
+      <form action="" class="p-2 w-75" [formGroup]="formLogin">
         <div class="row m-2">
           <div class="col-md-12 ">
             <h3>Iniciar Sesión</h3>
@@ -12,13 +12,18 @@
         <div class="row mt-5">
           <mat-form-field class="col-md-12">
             <mat-label>UserName</mat-label>
-           <input  matInput formControlName="validaNombres">
+           <input  matInput formControlName="validaUsername">
+           <mat-hint style="color: red;" *ngIf="formLogin.controls.validaUsername.touched">
+            <span *ngIf="formLogin.controls.validaUsername.hasError('required')">
+                Ingrese su username
+            </span>
+        </mat-hint>
         </mat-form-field>
         </div>
         <div class="row mt-4">
           <mat-form-field class="col-md-12">
             <mat-label>Ingrese su Contraseña</mat-label>
-            <input matInput [type]="hide() ? 'password' : 'text'" />
+            <input matInput [type]="hide() ? 'password' : 'text'" formControlName="validaPassword" />
             <button
               mat-icon-button
               matSuffix
@@ -28,11 +33,16 @@
             >
               <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+            <mat-hint style="color: red;" *ngIf="formLogin.controls.validaPassword.touched">
+              <span *ngIf="formLogin.controls.validaPassword.hasError('required')">
+                  Ingrese su Contraseña
+              </span>
+          </mat-hint>
         </mat-form-field>
       </div>
         <div class="row m-3">
           <div class="col-12 text-center m-1">
-            <button mat-flat-button color="warn" class="my-class">Ingresar</button>
+            <button mat-flat-button color="warn" class="my-class" [disabled]="formLogin.invalid">Ingresar</button>
           </div>
         </div>
         <div class="row  mt-4">
