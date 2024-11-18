@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -11,7 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
   selector: 'app-login',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule , MatFormFieldModule, MatInputModule, MatDatepickerModule ,     MatDatepickerModule,
-    MatNativeDateModule , MatButtonModule, MatDividerModule, MatIconModule],
+    MatNativeDateModule , MatButtonModule, MatDividerModule, MatIconModule , RouterLink ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -22,5 +23,13 @@ export class LoginComponent implements OnInit{
   ) {
    }
   ngOnInit() {}
+
+  // contraseña input
+  hide = signal(true);
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation();
+  }
+
 
 }

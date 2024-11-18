@@ -8,6 +8,33 @@
 
 
 .container{
-  width: 30% !important;
+  width: 28% !important;
   border-radius: 12px;
+  height: 460px !important;
+}
+
+.container h3{
+  font-family: "New Amsterdam", sans-serif;
+  font-weight:500;
+  font-style: normal;
+  font-size: 40px;
+  color: orange;
+  text-align: center;
+}
+
+.container form{
+  height: 400px !important;
+}
+
+.my-class{
+  width: 150px!important;
+  height: 40px;
+  border-radius: 5px;
+}
+.container p , a{
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  color: #00000090;
+  text-align: center;
 }
