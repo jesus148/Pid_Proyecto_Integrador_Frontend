@@ -1,0 +1,27 @@
+
+.todo{
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('../../../assets/fondo.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+
+.container{
+  width: 30% !important;
+  border-radius: 12px;
+}
+
+.container  h3{
+  font-family: "New Amsterdam", sans-serif;
+  font-weight:500;
+  font-style: normal;
+  font-size: 40px;
+  color: orange;
+  text-align: center;
+}
+
+.container form{
+  width: 370px;
+}

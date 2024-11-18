@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { LoginComponent } from './auth/login.component';
-import { IndexComponent } from './index/index.component';
 
 import { AgregarEjemploComponent } from './components/agregar-ejemplo/agregar-ejemplo.component';
 import { AgregarCoordenadaComponent } from './components/agregar-coordenada/agregar-coordenada.component';
@@ -14,10 +12,15 @@ import { AgregarPrestatarioComponent } from './components/agregar-prestatario/ag
 import { AgregarSolicitudPrestamoComponent } from './components/agregar-solicitud-prestamo/agregar-solicitud-prestamo.component';
 import { CrudEjemploComponent } from './components/crud-ejemplo/crud-ejemplo.component';
 import { ConsultaEjemploComponent } from './components/consulta-ejemplo/consulta-ejemplo.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrerComponent } from './auth/registrer/registrer.component';
+
 
 
 
 export const routes: Routes = [
+    { path: '', component: LoginComponent},
+
     {path:"verRegistroCoordenada", component:AgregarCoordenadaComponent },
     {path:"verRegistroCuenta", component:AgregarCuentaComponent },
     {path:"verRegistroDataCatalogo", component:AgregarDataCatalogoComponent },
@@ -27,12 +30,12 @@ export const routes: Routes = [
     {path:"verRegistroPrestatario", component:AgregarPrestatarioComponent },
     {path:"verRegistroSolicitudPrestamo", component:AgregarSolicitudPrestamoComponent },
     {path:"verRegistroEjemplo", component:AgregarEjemploComponent },
-  
+
     {path:"verCrudEjemplo", component:CrudEjemploComponent },
     {path:"verConsultaEjemplo", component: ConsultaEjemploComponent },
-    
-    { path: '', component: IndexComponent },
+
     { path: 'login', component: LoginComponent },
+    { path: 'Registrer', component: RegistrerComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }
   ];
-  
+
