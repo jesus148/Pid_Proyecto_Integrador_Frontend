@@ -6,8 +6,10 @@ import { Pais } from '../models/pais.model';
 import { DataCatalogo } from '../models/dataCatalogo.model';
 import { Ubigeo } from '../models/ubigeo.model';
 import { Usuario } from '../models/usuario.model';
+import { UsuarioRegistrer } from '../models/UsuariosRegistrer';
 
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
+const baseUrlUtil2 = AppSettings.API_ENDPOINT+ '/api/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +61,15 @@ export class UtilService {
   listaPrestamistariosDeUnPrestamista(param:any): Observable<Usuario[]>{
     return this.http.get<Usuario[]>(baseUrlUtil+"/listaPrestamistariosDeUnPrestamista/"+param);
   }
+
+
+
+  RegistrarUser(body: UsuarioRegistrer): Observable<any>{
+    return this.http.post(baseUrlUtil2+"/registrar",body);
+  }
+
+
+
 }
 
 

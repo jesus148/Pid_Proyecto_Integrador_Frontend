@@ -13,29 +13,30 @@ import { AgregarSolicitudPrestamoComponent } from './components/agregar-solicitu
 import { CrudEjemploComponent } from './components/crud-ejemplo/crud-ejemplo.component';
 import { ConsultaEjemploComponent } from './components/consulta-ejemplo/consulta-ejemplo.component';
 import { LoginComponent } from './auth/login/login.component';
-import { RegistrerComponent } from './auth/registrer/registrer.component';
+import { RegistrerComponent } from './components/registrer/registrer.component';
+import { IndexComponent } from './index/index.component';
 
 
 
 
 export const routes: Routes = [
-    { path: '', component: LoginComponent},
+  { path: '', component: IndexComponent },
+  {path:"verRegistroCoordenada", component:AgregarCoordenadaComponent },
+  {path:"verRegistroCuenta", component:AgregarCuentaComponent },
+  {path:"verRegistroDataCatalogo", component:AgregarDataCatalogoComponent },
+  {path:"verRegistroEntidadFinanciera", component:AgregarEntidadFinancieraComponent },
+  {path:"verRegistroGrupo", component:AgregarGrupoComponent },
+  {path:"verRegistroMontoPrestamo", component:AgregarMontoPrestamoComponent },
+  {path:"verRegistroPrestatario", component:AgregarPrestatarioComponent },
+  {path:"verRegistroSolicitudPrestamo", component:AgregarSolicitudPrestamoComponent },
+  {path:"verRegistroEjemplo", component:AgregarEjemploComponent },
 
-    {path:"verRegistroCoordenada", component:AgregarCoordenadaComponent },
-    {path:"verRegistroCuenta", component:AgregarCuentaComponent },
-    {path:"verRegistroDataCatalogo", component:AgregarDataCatalogoComponent },
-    {path:"verRegistroEntidadFinanciera", component:AgregarEntidadFinancieraComponent },
-    {path:"verRegistroGrupo", component:AgregarGrupoComponent },
-    {path:"verRegistroMontoPrestamo", component:AgregarMontoPrestamoComponent },
-    {path:"verRegistroPrestatario", component:AgregarPrestatarioComponent },
-    {path:"verRegistroSolicitudPrestamo", component:AgregarSolicitudPrestamoComponent },
-    {path:"verRegistroEjemplo", component:AgregarEjemploComponent },
+  {path:"verCrudEjemplo", component:CrudEjemploComponent },
+  {path:"verConsultaEjemplo", component: ConsultaEjemploComponent },
 
-    {path:"verCrudEjemplo", component:CrudEjemploComponent },
-    {path:"verConsultaEjemplo", component: ConsultaEjemploComponent },
 
-    { path: 'login', component: LoginComponent },
-    { path: 'Registrer', component: RegistrerComponent },
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: 'login', component: LoginComponent },
+  { path: 'Registrer', component: RegistrerComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
   ];
 
