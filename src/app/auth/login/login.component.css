@@ -7,11 +7,7 @@
 }
 
 
-.container{
-  width: 28% !important;
-  border-radius: 12px;
-  height: 460px !important;
-}
+
 
 .container h3{
   font-family: "New Amsterdam", sans-serif;
@@ -22,8 +18,16 @@
   text-align: center;
 }
 
-.container form{
-  height: 400px !important;
+
+.container {
+  height: 450px !important;
+  width:  400px !important;
+  position: absolute;
+  background-color: white;
+  border-radius: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .my-class{
@@ -39,3 +43,5 @@
   color: #00000090;
   text-align: center;
 }
+
+

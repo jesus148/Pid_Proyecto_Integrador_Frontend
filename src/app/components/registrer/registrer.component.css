@@ -8,16 +8,16 @@
 }
 
 .boton_Registrar{
-  width: 180px;
-  border-radius: 5px;
-  height: 40px;
+  width: 170px;
+  height: 45px;
+  font-size: 17px;
 }
 
 
 .container{
-  width: 30% !important;
-  border-radius: 12px;
-  height: 720px !important;
+  width: 27% !important;
+  border-radius: 32px;
+ height: auto;
 }
 
 .container  h3{
@@ -28,7 +28,14 @@
   color: orange;
   text-align: center;
 }
+.container p , a{
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  color: #00000090;
+  text-align: center;
+}
 
 .container form{
-  width: 370px;
+  width: 68%;
 }
