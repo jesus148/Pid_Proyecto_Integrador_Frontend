@@ -99,7 +99,7 @@
         </div>
         <div class="row">
           <mat-form-field class="col-md-12">
-            <mat-label>  email
+            <mat-label>  Email
             </mat-label>
            <input  matInput formControlName="validaEmail"  [(ngModel)] ="usuario.email">
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaEmail.touched">
@@ -128,7 +128,7 @@
         <div class="row mt-2">
           <div class="col-md-12">
             <div class=" d-flex justify-content-end p-2">
-              <p>Ya Tienes una Cuenta? <a [routerLink]="['/login']">Inicia Sesión</a></p>
+              <p>Ya Tienes una Cuenta?<a [routerLink]="['/login']" class="link-azul">Inicia Sesión</a></p>
             </div>
           </div>
         </div>

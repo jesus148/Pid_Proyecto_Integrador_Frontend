@@ -39,3 +39,18 @@
 .container form{
   width: 68%;
 }
+
+.link-azul {
+  color: blue; 
+  text-decoration: underline; 
+  transition: color 0.3s ease; 
+}
+
+.link-azul:hover {
+  color: darkred; 
+}
+
+.link-azul:focus {
+  color: darkred; 
+  outline: none; 
+}
