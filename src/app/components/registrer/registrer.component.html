@@ -14,10 +14,14 @@
         <div class="row">
           <mat-form-field class="col-md-12">
             <mat-label>Nombres:</mat-label>
-           <input  matInput formControlName="validaNombres" [(ngModel)] ="usuario.nombres">
+           <input  matInput formControlName="validaNombres" [(ngModel)] ="usuario.nombres"
+           minlength="2" (keypress)="onKeyPress($event,'nombres')">
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombres.touched">
             <span class="" *ngIf="formRegistrar.controls.validaNombres.hasError('required')">
               Ingrese Nombres
+            </span>
+            <span *ngIf="formRegistrar.controls.validaNombres.hasError('minlength')">
+              Debe ingresar al menos 2 caracteres 
             </span>
         </mat-hint>
         </mat-form-field>
@@ -25,10 +29,14 @@
         <div class="row">
           <mat-form-field class="col-md-12">
             <mat-label>Apellidos:</mat-label>
-           <input  matInput formControlName="validaApellidos" [(ngModel)] ="usuario.apellidos">
+           <input  matInput formControlName="validaApellidos" [(ngModel)] ="usuario.apellidos"
+           minlength="2"(keypress)="onKeyPress($event,'apellidos')" >
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaApellidos.touched">
             <span class="" *ngIf="formRegistrar.controls.validaApellidos.hasError('required')">
               Ingrese Apellidos
+            </span>
+            <span *ngIf="formRegistrar.controls.validaApellidos.hasError('minlength')">
+              Debe ingresar al menos 2 caracteres
             </span>
         </mat-hint>
         </mat-form-field>
@@ -36,10 +44,16 @@
       <div class="row">
         <mat-form-field class="col-md-12">
           <mat-label>DNI:</mat-label>
-         <input  matInput formControlName="validaDni"  [(ngModel)] ="usuario.dni">
+         <input  matInput formControlName="validaDni"  [(ngModel)] ="usuario.dni"
+         (keypress)="onKeyPress($event,'dni')"  
+         maxlength="8"  
+         minlength="8"  >
          <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDni.touched">
           <span class="" *ngIf="formRegistrar.controls.validaDni.hasError('required')">
             Ingrese DNI
+          </span>
+          <span *ngIf="formRegistrar.controls.validaDni.hasError('minlength') || formRegistrar.controls.validaDni.hasError('maxlength')">
+            El DNI debe tener exactamente 8 dígitos
           </span>
       </mat-hint>
       </mat-form-field>
@@ -50,7 +64,7 @@
            <input  matInput formControlName="validaUserName"  [(ngModel)] ="usuario.login">
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaUserName.touched">
             <span class="" *ngIf="formRegistrar.controls.validaUserName.hasError('pattern')">
-              Nombre de usuario debe contener entre 6 y 30 caracteres
+              Nombre de usuario debe contener entre 6 y 30 
             </span>
             <span class="" *ngIf="formRegistrar.controls.validaUserName.hasError('required')">
               ingresar el nombre de usuario
@@ -75,7 +89,7 @@
            </button>
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validacontrasena.touched">
             <span class="" *ngIf="formRegistrar.controls.validacontrasena.hasError('pattern')">
-               Minimo 8 caracteres
+               Minimo 8 caracteres con (1+%+A)
             </span>
             <span class="" *ngIf="formRegistrar.controls.validacontrasena.hasError('required')">
               ingresar la contraseña

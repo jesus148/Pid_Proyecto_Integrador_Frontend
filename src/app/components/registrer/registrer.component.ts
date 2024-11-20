@@ -40,10 +40,17 @@ export class RegistrerComponent {
   formRegistrar = this.formBuilder.group({
     validaNombres: ['', [Validators.required]],
     validaApellidos: ['', [Validators.required]],
-    validaDni: ['', [Validators.required]],
+    validaDni: ['', [Validators.required, ]],
     validaUserName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]{6,30}')]],
-    validacontrasena: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
-    ]],
+    validacontrasena: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(
+          '^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\\d!@#$%^&*(),.?":{}|<>]{8,}$'
+        ),
+      ],
+    ],
     validaEmail: ['', [Validators.required , Validators.pattern("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")]],
     validaFechaInicio: ['', [Validators.required]],
 });
@@ -75,6 +82,29 @@ clickEvent(event: MouseEvent) {
     );
   }
 
-
-
+  onKeyPress(event: KeyboardEvent, field: string): void {
+    const charCode = event.charCode;
+  
+    // Si el campo es DNI (solo permitir números, máximo 8 dígitos)
+   
+  
+    // Si el campo es Nombres o Apellidos (solo permitir letras y espacios, mínimo 2 caracteres)
+    if (field === 'nombres' || field === 'apellidos') {
+      // Permitir solo letras y espacio
+      if (
+        (charCode < 65 || charCode > 90) &&  // Mayúsculas A-Z
+        (charCode < 97 || charCode > 122) &&  // Minúsculas a-z
+        charCode !== 32  // Espacio
+      ) {
+        event.preventDefault();  // Bloquear caracteres no permitidos
+      }
+    }
+     if (field === 'dni') {
+      // Permitir solo números y evitar más de 8 dígitos
+      const currentValue = (event.target as HTMLInputElement).value.length;
+      if ((charCode < 48 || charCode > 57) || currentValue >= 8) {
+        event.preventDefault();  // Bloquear si no es un número o si supera los 8 dígitos
+      }
+    }
+  }
 }
