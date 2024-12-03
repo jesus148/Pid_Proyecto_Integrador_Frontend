@@ -6,7 +6,9 @@ nav{
 }
 
 
-nav a {
-  font-family: "New Amsterdam", sans-serif;
-  font-size: 23px;
+nav > a {
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  font-style: normal;
 }

@@ -1,0 +1,63 @@
+<div class="todo">
+  <app-menu></app-menu>
+
+  <div class="container d-flex justify-content-center align-items-center w-25  bg-light">
+
+    <form action="" class="p-2 ">
+     <div class="row m-2">
+       <div class="col-md-12 ">
+         <h3>Registrar Tarea</h3>
+       </div>
+     </div>
+     <div class="row mt-5">
+       <mat-form-field class="col-md-12">
+         <mat-label>Nombre</mat-label>
+        <input  matInput   >
+        <mat-hint style="color: red;" >
+         <span >
+             Ingrese Nombre
+         </span>
+     </mat-hint>
+     </mat-form-field>
+     </div>
+     <div class="row mt-4">
+       <mat-form-field class="col-md-12">
+         <mat-label>Descripción</mat-label>
+         <input  matInput   >
+         <mat-hint style="color: red;">
+           <span >
+               Ingrese su Descripción
+           </span>
+       </mat-hint>
+     </mat-form-field>
+   </div>
+     <div class="row mt-4">
+      <mat-form-field class="col-md-12">
+        <mat-label>Fecha de Vencimiento</mat-label>
+        <input matInput [matDatepicker]="picker"   >
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+   </div>
+     <div class="row mt-4">
+       <mat-form-field class="col-md-12">
+         <mat-label>Prioridad</mat-label>
+         <input  matInput   >
+         <mat-hint style="color: red;">
+           <span >
+               Ingrese su Prioridad
+           </span>
+       </mat-hint>
+     </mat-form-field>
+   </div>
+     <div class="row m-3">
+       <div class="col-12 text-center m-1">
+         <button mat-flat-button color="warn" class="my-class" >Registrar</button>
+       </div>
+     </div>
+   </form>
+
+</div>
+
+
+</div>

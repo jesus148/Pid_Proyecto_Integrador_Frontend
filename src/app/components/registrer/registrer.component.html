@@ -21,7 +21,7 @@
               Ingrese Nombres
             </span>
             <span *ngIf="formRegistrar.controls.validaNombres.hasError('minlength')">
-              Debe ingresar al menos 2 caracteres 
+              Debe ingresar al menos 2 caracteres
             </span>
         </mat-hint>
         </mat-form-field>
@@ -45,8 +45,8 @@
         <mat-form-field class="col-md-12">
           <mat-label>DNI:</mat-label>
          <input  matInput formControlName="validaDni"  [(ngModel)] ="usuario.dni"
-         (keypress)="onKeyPress($event,'dni')"  
-         maxlength="8"  
+         (keypress)="onKeyPress($event,'dni')"
+         maxlength="8"
          minlength="8"  >
          <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDni.touched">
           <span class="" *ngIf="formRegistrar.controls.validaDni.hasError('required')">
@@ -64,7 +64,7 @@
            <input  matInput formControlName="validaUserName"  [(ngModel)] ="usuario.login">
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaUserName.touched">
             <span class="" *ngIf="formRegistrar.controls.validaUserName.hasError('pattern')">
-              Nombre de usuario debe contener entre 6 y 30 
+              Nombre de usuario debe contener entre 6 y 30
             </span>
             <span class="" *ngIf="formRegistrar.controls.validaUserName.hasError('required')">
               ingresar el nombre de usuario

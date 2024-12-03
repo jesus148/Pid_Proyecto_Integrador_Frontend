@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { MenuComponent } from "../../menu/menu.component";
 import { AppMaterialModule } from '../../app.material.module';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { TokenService } from '../../security/token.service';
 import { AuthService } from '../../security/auth.service';
+import { Proyecto } from '../../models/proyecto';
 
 @Component({
   selector: 'app-registrar-proyecto',
@@ -16,6 +17,22 @@ import { AuthService } from '../../security/auth.service';
 })
 export class RegistrarProyectoComponent {
 
+
+
+  proyecto:Proyecto={
+    nombre:'',
+    descripcion:'',
+    fechaCreacion:new Date(),
+    idUsuario:{
+      idUsuario: -1
+    }
+  }
+
+
+  formRegistrar = this.formBuilder.group({
+    validaNombre: ['', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]],
+    validaDescripcion: ['', [Validators.required]],
+});
 
   constructor(
     private tokenService: TokenService,

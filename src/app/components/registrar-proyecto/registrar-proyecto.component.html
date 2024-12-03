@@ -2,9 +2,9 @@
 <div class="todo">
   <app-menu></app-menu>
 
-      <div class="container d-flex justify-content-center align-items-center w-50">
+      <div class="container d-flex justify-content-center align-items-center w-25  bg-light">
 
-                  <form action="" class="p-2 w-50">
+                  <form action="" [formGroup]="formRegistrar" class="p-2 ">
                    <div class="row m-2">
                      <div class="col-md-12 ">
                        <h3>Registrar Proyecto</h3>
@@ -13,26 +13,29 @@
                    <div class="row mt-5">
                      <mat-form-field class="col-md-12">
                        <mat-label>Nombre</mat-label>
-                      <input  matInput   >
-                      <mat-hint style="color: red;" >
-                       <span >
-                           Ingrese su Usuario
+                      <input  matInput  [(ngModel)] ="proyecto.nombre" formControlName="validaNombre"   >
+                      <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaNombre.touched">
+                       <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')" >
+                           Ingrese proyecto
                        </span>
+                       <span *ngIf="formRegistrar.controls.validaNombre.hasError('pattern')">
+                       mínimo 3 carácteres
+                    </span>
                    </mat-hint>
                    </mat-form-field>
                    </div>
                    <div class="row mt-4">
                      <mat-form-field class="col-md-12">
                        <mat-label>Descripción</mat-label>
-                       <input  matInput   >
-                       <mat-hint style="color: red;">
-                         <span >
-                             Ingrese su Contraseña
+                       <input  matInput   [(ngModel)] ="proyecto.descripcion" formControlName="validaDescripcion"  >
+                       <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched" >
+                         <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')" >
+                             Ingrese  Descripción
                          </span>
                      </mat-hint>
                    </mat-form-field>
                  </div>
-                   <div class="row m-3">
+                   <div class="row mt-5">
                      <div class="col-12 text-center m-1">
                        <button mat-flat-button color="warn" class="my-class" >Registrar</button>
                      </div>
