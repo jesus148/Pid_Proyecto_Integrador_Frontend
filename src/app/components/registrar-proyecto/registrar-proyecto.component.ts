@@ -7,6 +7,10 @@ import { Router, RouterLink } from '@angular/router';
 import { TokenService } from '../../security/token.service';
 import { AuthService } from '../../security/auth.service';
 import { Proyecto } from '../../models/proyecto';
+import { UtilService } from '../../services/util.service';
+import { Usuario } from '../../models/usurio.model';
+import { ProyectoService } from '../../services/proyecto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-proyecto',
@@ -21,11 +25,11 @@ export class RegistrarProyectoComponent {
 
   proyecto:Proyecto={
     nombre:'',
-    descripcion:'',
-    fechaCreacion:new Date(),
-    idUsuario:{
-      idUsuario: -1
-    }
+    descripcion:''
+    // fechaCreacion:new Date()
+    // idUsuario:{
+    //   idUsuario: -1
+    // }
   }
 
 
@@ -34,18 +38,74 @@ export class RegistrarProyectoComponent {
     validaDescripcion: ['', [Validators.required]],
 });
 
+
+  //usuario en sesion
+  objUsuario: Usuario = {};
+
+
+
+  // inicia
   constructor(
-    private tokenService: TokenService,
-    private authService: AuthService,
-    private router: Router,
-    private formBuilder: FormBuilder
+    // private tokenService: TokenService,
+    // private utilService: UtilService,
+    // private router: Router,
+    private proyectService: ProyectoService,
+    private formBuilder: FormBuilder,
+
   ) {
-    console.log("constructor >> constructor >>> " + this.tokenService.getToken());
+    // console.log("constructor >> constructor >>> " + this.tokenService.getToken());
    }
+
+  ngOnInit() {
+    // this.objUsuario.idUsuario = this.tokenService.getUserId();
+ }
+
+
+
 
    hide = signal(true);
    clickEvent(event: MouseEvent) {
      this.hide.set(!this.hide());
      event.stopPropagation();
+   }
+
+
+
+   registra(){
+
+    console.log(">>> registra [inicio]");
+    // this.proyecto.idUsuario = this.objUsuario;
+    console.log(this.proyecto);
+
+         // ENVIANDO LA DATA CARGADA
+        //  this.proyectService.registrarProyecto(this.proyecto).subscribe(
+        //   x=>{
+        //         Swal.fire({ icon: 'info', title: 'Resultado del Registro', text: x.mensaje, });
+        //         this.proyecto ={
+        //           nombre:'',
+        //           descripcion:'',
+        //           // fechaCreacion:new Date(),
+        //           // idUsuario:{
+        //           //   idUsuario: -1
+        //           // }
+        //             }
+        //     }
+        // );
+
+        this.proyectService.registrarProyecto(this.proyecto).subscribe(
+          x => {
+            Swal.fire({
+              icon: 'info',
+              title: 'Resultado del Registro',
+              text: x.mensaje,
+            })
+            // Reinicia el objeto proyecto
+            // this.proyecto = {
+            //   nombre: '',
+            //   descripcion: '',
+            // };
+          },
+        );
+
    }
 }

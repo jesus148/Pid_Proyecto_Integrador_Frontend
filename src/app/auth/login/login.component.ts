@@ -57,6 +57,8 @@ export class LoginComponent implements OnInit {
       event.stopPropagation();
     }
 
+
+
   onLogin(): void {
     this.authService.login(this.loginUsuario).subscribe(
       (data:any) => {

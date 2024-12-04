@@ -60,3 +60,6 @@
 }
 
 
+.todo p a {
+  text-decoration: none;
+}

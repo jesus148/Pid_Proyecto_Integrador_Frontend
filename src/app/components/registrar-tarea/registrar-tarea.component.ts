@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from "../../menu/menu.component";
 import { RouterLink } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppMaterialModule } from '../../app.material.module';
+import { Tarea } from '../../models/tarea.model';
+import { ProyectoService } from '../../services/proyecto.service';
+import { Proyecto } from '../../models/proyecto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-tarea',
@@ -13,5 +17,79 @@ import { AppMaterialModule } from '../../app.material.module';
   styleUrl: './registrar-tarea.component.css'
 })
 export class RegistrarTareaComponent {
+
+
+
+
+  tarea:Tarea={
+    nombre:'',
+    descripcion:'',
+    fechaVencimiento:new Date(),
+    prioridad:-1,
+    idProyecto:{
+      idProyecto:-1
+    }
+  }
+
+
+  formRegistrar = this.formBuilder.group({
+    validaNombre: ['', [Validators.required]],
+    validaDescripcion: ['', [Validators.required]],
+    validaVencimiento: ['', [Validators.required]],
+    validaprioridad: ['', [Validators.min(1)]],
+    validaProyecto: ['', [Validators.min(1)]],
+});
+
+
+
+  prioridad: number[] = [1, 2, 3, 4];
+
+  listaProyect:Proyecto[]=[];
+
+
+
+
+  constructor( private proyecService:ProyectoService,
+    private formBuilder: FormBuilder
+  ){
+  }
+  ngOnInit(): void {
+    this.listaProyectos();
+    console.log(this.formRegistrar);
+  }
+
+
+  registra(){
+  // LLENANDO LA DATA Q FALTA AL OBJETO EJEMPLO PA REGISTRAR
+  console.log(">>> registra [inicio]");
+  console.log(this.tarea);
+
+  // ENVIANDO LA DATA CARGADA
+  this.proyecService.registrarTarea(this.tarea).subscribe(
+    x=>{
+          Swal.fire({ icon: 'info', title: 'Resultado del Registro', text: x.mensaje, });
+          this.tarea ={
+                 nombre:"",
+                descripcion: "",
+                fechaVencimiento:new Date(),
+                prioridad:-1,
+                idProyecto:{
+                  idProyecto:-1
+                }
+              }
+      }
+  );
+  }
+
+
+
+      // LISTAR COMBO CUANDO SELECCIONES OTRO COMBO OSEA RELACIONA SEGUN Q DISTRITO HAYAS SELECCIONADO
+      listaProyectos(){
+        // console.log("listaProvincia>>> " + this.proyecService.ubigeo?.departamento);
+        this.proyecService.GetProyect().subscribe(
+            x => this.listaProyect = x
+        );
+    }
+
 
 }

@@ -3,7 +3,7 @@
 
   <div class="container d-flex justify-content-center align-items-center w-25  bg-light">
 
-    <form action="" class="p-2 ">
+    <form action="" class="p-2 " [formGroup]="formRegistrar">
      <div class="row m-2">
        <div class="col-md-12 ">
          <h3>Registrar Tarea</h3>
@@ -12,9 +12,9 @@
      <div class="row mt-5">
        <mat-form-field class="col-md-12">
          <mat-label>Nombre</mat-label>
-        <input  matInput   >
-        <mat-hint style="color: red;" >
-         <span >
+        <input  matInput   [(ngModel)] ="tarea.nombre" formControlName="validaNombre" >
+        <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombre.touched" >
+         <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')" >
              Ingrese Nombre
          </span>
      </mat-hint>
@@ -23,9 +23,9 @@
      <div class="row mt-4">
        <mat-form-field class="col-md-12">
          <mat-label>Descripción</mat-label>
-         <input  matInput   >
-         <mat-hint style="color: red;">
-           <span >
+         <input  matInput [(ngModel)] ="tarea.descripcion" formControlName="validaDescripcion"   >
+         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched">
+           <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')" >
                Ingrese su Descripción
            </span>
        </mat-hint>
@@ -34,25 +34,53 @@
      <div class="row mt-4">
       <mat-form-field class="col-md-12">
         <mat-label>Fecha de Vencimiento</mat-label>
-        <input matInput [matDatepicker]="picker"   >
+        <input matInput [matDatepicker]="picker" [(ngModel)] ="tarea.fechaVencimiento" formControlName="validaVencimiento"  >
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
+        <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaVencimiento.touched">
+          <span *ngIf="formRegistrar.controls.validaVencimiento.hasError('required')">
+              fecha de vencimiento es requerida
+          </span>
+
+      </mat-hint>
     </mat-form-field>
    </div>
      <div class="row mt-4">
        <mat-form-field class="col-md-12">
          <mat-label>Prioridad</mat-label>
-         <input  matInput   >
-         <mat-hint style="color: red;">
-           <span >
+         <mat-select [(ngModel)]="tarea.prioridad" formControlName="validaprioridad" >
+          <mat-option value="-1"> [Seleccione] </mat-option>
+          <mat-option *ngFor="let x of prioridad" [value]="x">
+              {{x}}
+          </mat-option>
+      </mat-select>
+         <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaprioridad.touched">
+           <span *ngIf="formRegistrar.controls.validaprioridad.hasError('min')" >
                Ingrese su Prioridad
+           </span>
+       </mat-hint>
+     </mat-form-field>
+   </div>
+
+     <div class="row mt-4">
+       <mat-form-field class="col-md-12">
+         <mat-label>Proyecto</mat-label>
+         <mat-select [(ngModel)]="tarea.idProyecto!.idProyecto" formControlName="validaProyecto" >
+          <mat-option value="-1"> [Seleccione] </mat-option>
+          <mat-option *ngFor="let x of listaProyect" [value]="x.idProyecto">
+              {{x.nombre}}
+          </mat-option>
+      </mat-select>
+         <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaProyecto.touched">
+           <span *ngIf="formRegistrar.controls.validaProyecto.hasError('min')" >
+               Seleccione un Proyecto
            </span>
        </mat-hint>
      </mat-form-field>
    </div>
      <div class="row m-3">
        <div class="col-12 text-center m-1">
-         <button mat-flat-button color="warn" class="my-class" >Registrar</button>
+         <button mat-flat-button color="warn" class="my-class" [disabled]="formRegistrar.invalid" (click)="registra()">Registrar</button>
        </div>
      </div>
    </form>
