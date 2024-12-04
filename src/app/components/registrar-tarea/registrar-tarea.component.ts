@@ -21,14 +21,14 @@ export class RegistrarTareaComponent {
 
 
 
-  tarea:Tarea={
+  lstProyecto: Proyecto[]=[];
+
+  objtarea:Tarea={
     nombre:'',
     descripcion:'',
     fechaVencimiento:new Date(),
     prioridad:-1,
-    idProyecto:{
-      idProyecto:-1
-    }
+    proyecto: { idProyecto: -1 }
   }
 
 
@@ -52,44 +52,57 @@ export class RegistrarTareaComponent {
   constructor( private proyecService:ProyectoService,
     private formBuilder: FormBuilder
   ){
+    this.proyecService.GetProyect().subscribe(
+      x => this.lstProyecto = x
+    );
   }
-  ngOnInit(): void {
-    this.listaProyectos();
-    console.log(this.formRegistrar);
-  }
+  // ngOnInit(): void {
+  //   this.listaProyectos();
+  //   console.log(this.formRegistrar);
+  // }
 
 
   registra(){
   // LLENANDO LA DATA Q FALTA AL OBJETO EJEMPLO PA REGISTRAR
   console.log(">>> registra [inicio]");
-  console.log(this.tarea);
+  // console.log(this.tarea);
 
   // ENVIANDO LA DATA CARGADA
-  this.proyecService.registrarTarea(this.tarea).subscribe(
-    x=>{
-          Swal.fire({ icon: 'info', title: 'Resultado del Registro', text: x.mensaje, });
-          this.tarea ={
-                 nombre:"",
-                descripcion: "",
-                fechaVencimiento:new Date(),
-                prioridad:-1,
-                idProyecto:{
-                  idProyecto:-1
-                }
-              }
-      }
+  // this.proyecService.registrarTarea(this.tarea).subscribe(
+  //   x=>{
+  //         Swal.fire({ icon: 'info', title: 'Resultado del Registro', text: x.mensaje, });
+  //         this.tarea ={
+  //                nombre:"",
+  //               descripcion: "",
+  //               fechaVencimiento:new Date(),
+  //               prioridad:-1,
+  //               idProyecto:{
+  //                 idProyecto:-1
+  //               }
+  //             }
+  //     }
+  // );
+  this.proyecService.registrarTarea(this.objtarea).subscribe(
+    x => {
+      Swal.fire({
+        icon: 'info',
+        title: 'Resultado del Registro',
+        text: x.mensaje,
+      })
+    },
   );
+}
   }
 
 
 
       // LISTAR COMBO CUANDO SELECCIONES OTRO COMBO OSEA RELACIONA SEGUN Q DISTRITO HAYAS SELECCIONADO
-      listaProyectos(){
-        // console.log("listaProvincia>>> " + this.proyecService.ubigeo?.departamento);
-        this.proyecService.GetProyect().subscribe(
-            x => this.listaProyect = x
-        );
-    }
+    //   listaProyectos(){
+    //     // console.log("listaProvincia>>> " + this.proyecService.ubigeo?.departamento);
+    //     this.proyecService.GetProyect().subscribe(
+    //         x => this.listaProyect = x
+    //     );
+    // }
 
 
-}
+

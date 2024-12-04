@@ -34,7 +34,7 @@ export class RegistrarProyectoComponent {
 
 
   formRegistrar = this.formBuilder.group({
-    validaNombre: ['', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]],
+    validaNombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{3,}$')]],
     validaDescripcion: ['', [Validators.required]],
 });
 

@@ -7,7 +7,6 @@ export class Tarea {
   descripcion?:string;
   fechaVencimiento?:Date;
   prioridad?:number;
-  idUsuario?:Usuario;
   fechaCreacion?:Date;
-  idProyecto?:Proyecto;
+  proyecto?:Proyecto;
 }

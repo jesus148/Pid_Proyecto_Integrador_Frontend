@@ -12,7 +12,7 @@
      <div class="row mt-5">
        <mat-form-field class="col-md-12">
          <mat-label>Nombre</mat-label>
-        <input  matInput   [(ngModel)] ="tarea.nombre" formControlName="validaNombre" >
+        <input  matInput   [(ngModel)] ="objtarea.nombre" formControlName="validaNombre" >
         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombre.touched" >
          <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')" >
              Ingrese Nombre
@@ -23,7 +23,7 @@
      <div class="row mt-4">
        <mat-form-field class="col-md-12">
          <mat-label>Descripción</mat-label>
-         <input  matInput [(ngModel)] ="tarea.descripcion" formControlName="validaDescripcion"   >
+         <input  matInput [(ngModel)] ="objtarea.descripcion" formControlName="validaDescripcion"   >
          <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched">
            <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')" >
                Ingrese su Descripción
@@ -34,7 +34,7 @@
      <div class="row mt-4">
       <mat-form-field class="col-md-12">
         <mat-label>Fecha de Vencimiento</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)] ="tarea.fechaVencimiento" formControlName="validaVencimiento"  >
+        <input matInput [matDatepicker]="picker" [(ngModel)] ="objtarea.fechaVencimiento" formControlName="validaVencimiento"  >
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaVencimiento.touched">
@@ -48,7 +48,7 @@
      <div class="row mt-4">
        <mat-form-field class="col-md-12">
          <mat-label>Prioridad</mat-label>
-         <mat-select [(ngModel)]="tarea.prioridad" formControlName="validaprioridad" >
+         <mat-select [(ngModel)]="objtarea.prioridad" formControlName="validaprioridad" >
           <mat-option value="-1"> [Seleccione] </mat-option>
           <mat-option *ngFor="let x of prioridad" [value]="x">
               {{x}}
@@ -65,9 +65,9 @@
      <div class="row mt-4">
        <mat-form-field class="col-md-12">
          <mat-label>Proyecto</mat-label>
-         <mat-select [(ngModel)]="tarea.idProyecto!.idProyecto" formControlName="validaProyecto" >
+         <mat-select *ngIf="objtarea.proyecto" [(ngModel)]="objtarea.proyecto.idProyecto"   formControlName="validaProyecto" >
           <mat-option value="-1"> [Seleccione] </mat-option>
-          <mat-option *ngFor="let x of listaProyect" [value]="x.idProyecto">
+          <mat-option *ngFor="let x of lstProyecto" [value]="x.idProyecto">
               {{x.nombre}}
           </mat-option>
       </mat-select>
