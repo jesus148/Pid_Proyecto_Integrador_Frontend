@@ -37,6 +37,14 @@ export class TokenService {
   }
 
 
+  // TOKEN PROYECTO PIT
+
+
+  public getUserIdPit(): any {
+    return sessionStorage.getItem(USER_ID_KEY);
+  }
+
+
   public setUserNameComplete(name: string): void {
     window.sessionStorage.removeItem(NAME_KEY);
     window.sessionStorage.setItem(NAME_KEY, name);
@@ -80,7 +88,7 @@ export class TokenService {
 
   public getOpciones(): Opcion[] {
     this.opciones = [];
-    if (sessionStorage.getItem(OPCIONES_KEY)) {   
+    if (sessionStorage.getItem(OPCIONES_KEY)) {
       JSON.parse(sessionStorage.getItem(OPCIONES_KEY)|| '{}').forEach(
         (aux:any) => {
           this.opciones.push(aux);

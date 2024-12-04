@@ -45,18 +45,21 @@
 }
 
 .link-azul {
-  color: blue; 
-  text-decoration: underline; 
-  transition: color 0.3s ease; 
+  color: blue;
+  text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
 .link-azul:hover {
-  color: darkred; 
+  color: darkred;
 }
 
 .link-azul:focus {
-  color: darkred; 
-  outline: none; 
+  color: darkred;
+  outline: none;
 }
 
 
+.todo p a {
+  text-decoration: none;
+}

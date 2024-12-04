@@ -15,6 +15,8 @@ import { ConsultaEjemploComponent } from './components/consulta-ejemplo/consulta
 import { LoginComponent } from './auth/login/login.component';
 import { RegistrerComponent } from './components/registrer/registrer.component';
 import { IndexComponent } from './index/index.component';
+import { RegistrarProyectoComponent } from './components/registrar-proyecto/registrar-proyecto.component';
+import { RegistrarTareaComponent } from './components/registrar-tarea/registrar-tarea.component';
 
 
 
@@ -30,6 +32,8 @@ export const routes: Routes = [
   {path:"verRegistroPrestatario", component:AgregarPrestatarioComponent },
   {path:"verRegistroSolicitudPrestamo", component:AgregarSolicitudPrestamoComponent },
   {path:"verRegistroEjemplo", component:AgregarEjemploComponent },
+  {path:"verRegistrarProyecto", component:RegistrarProyectoComponent },
+  {path:"verRegistrarTarea", component:RegistrarTareaComponent },
 
   {path:"verCrudEjemplo", component:CrudEjemploComponent },
   {path:"verConsultaEjemplo", component: ConsultaEjemploComponent },

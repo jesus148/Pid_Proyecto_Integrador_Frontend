@@ -1,15 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule, FormBuilder, Validators, ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { FormsModule, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
 import { AppMaterialModule } from '../../app.material.module';
 import { MenuComponent } from '../../menu/menu.component';
 import { LoginUsuario } from '../../security/login-usuario';
@@ -63,6 +56,8 @@ export class LoginComponent implements OnInit {
       this.hide.set(!this.hide());
       event.stopPropagation();
     }
+
+
 
   onLogin(): void {
     this.authService.login(this.loginUsuario).subscribe(

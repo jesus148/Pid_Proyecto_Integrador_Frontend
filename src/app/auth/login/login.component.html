@@ -32,7 +32,7 @@
                     </div>
                   </div>
                   </form> -->
-                  <form action="" class="p-2 w-75" [formGroup]="formLogin" (ngSubmit)="onLogin()">
+                  <form action="" class="p-2 w-75" [formGroup]="formLogin" >
                    <div class="row m-2">
                      <div class="col-md-12 ">
                        <h3>Iniciar Sesión</h3>
@@ -54,14 +54,14 @@
                        <mat-label>Contraseña</mat-label>
                        <input matInput [type]="hide() ? 'password' : 'text'" formControlName="validaPassword" [(ngModel)]="loginUsuario.password" />
                        <button
-                         mat-icon-button
-                         matSuffix
-                         (click)="clickEvent($event)"
-                         [attr.aria-label]="'Hide password'"
-                         [attr.aria-pressed]="hide()"
-                       >
-                         <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                       </button>
+                       mat-icon-button
+                       matSuffix
+                       (click)="clickEvent($event)"
+                       [attr.aria-label]="'Hide password'"
+                       [attr.aria-pressed]="hide()"
+                     >
+                       <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                     </button>
                        <mat-hint style="color: red;" *ngIf="formLogin.controls.validaPassword.touched">
                          <span *ngIf="formLogin.controls.validaPassword.hasError('required')">
                              Ingrese su Contraseña
@@ -71,13 +71,13 @@
                  </div>
                    <div class="row m-3">
                      <div class="col-12 text-center m-1">
-                       <button mat-flat-button color="warn" class="my-class" [disabled]="formLogin.invalid">Ingresar</button>
+                       <button mat-flat-button color="warn" class="my-class" [disabled]="formLogin.invalid" (click)="onLogin()">Ingresar</button>
                      </div>
                    </div>
                    <div class="row  mt-4">
                      <div class="col-md-12">
                        <div class=" d-flex justify-content-end ">
-                         <p>No tienes una cuenta ? <a [routerLink]="['/Registrer']" class="link-azul">Registrate</a></p>
+                         <p>No tienes una cuenta ? <a [routerLink]="['/Registrer']" >Registrate</a></p>
                        </div>
                      </div>
                    </div>

@@ -1,10 +1,11 @@
-<style>
+<!-- <style>
   .bg-orange {
     background-color: #fb5e17;
   }
-</style>
-<nav class="navbar navbar-expand-lg navbar-dark bg-orange mb-4">
-    <a class="navbar-brand" href="#">Todoist</a>
+</style> -->
+<nav class="navbar navbar-expand-lg navbar-dark p-2  mb-4">
+
+    <a class="navbar-brand text-dark ps-4 " href="#" >Todoist</a>
     <button class="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -15,17 +16,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-5">
 
+
+        <li class="nav-item " *ngIf="isLogged" >
+          <a class="nav-link text-dark"  routerLink="/verRegistrarProyecto"><i class="bi bi-plus-circle-fill"></i> Registrar Proyecto</a>
+
+        <li class="nav-item " *ngIf="isLogged" >
+          <a class="nav-link text-dark"  routerLink="/verRegistrarTarea"><i class="bi bi-plus-circle"></i> Registrar Tarea</a>
+
+      </li>
         <li class="nav-item " *ngIf="!isLogged">
-            <a class="nav-link"  routerLink="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+            <a class="nav-link text-dark"  routerLink="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
         </li>
         <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
-            <a class="nav-link" style="cursor: pointer;"><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
+            <a class="nav-link text-dark" style="cursor: pointer;"><i class="bi bi-x-circle-fill"></i> Cerrar Sesión</a>
         </li>
 
-
+<!--
         <li class="nav-item dropdown" *ngIf="isLogged">
           <a
             class="nav-link dropdown-toggle"
@@ -43,7 +52,7 @@
                         {{ item.nombre }}
                 </a>
           </div>
-        </li>       
+        </li> -->
     </ul>
 
 
