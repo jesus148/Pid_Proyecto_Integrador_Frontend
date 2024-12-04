@@ -2,17 +2,17 @@
 <div class="container">
     <div class="row">
         <mat-toolbar color="primary">
-            <span>Consulta Ejemplo</span>
+            <span>Consultar Ejemplo</span>
         </mat-toolbar>
     </div>
 
     <div class="row" style="margin-top: 3%">
         <mat-form-field class="col-md-5">
-            <mat-label>Descripción</mat-label>
+            <mat-label>Descripción:</mat-label>
             <input matInput [(ngModel)]="descripcion" >
         </mat-form-field>
         <mat-form-field class="col-md-4">
-            <mat-label>País</mat-label>
+            <mat-label>País:</mat-label>
             <mat-select [(ngModel)]="idPais">
                 <mat-option value="-1"> [Todos] </mat-option>
                 <mat-option *ngFor="let aux of lstPais" [value]="aux.idPais">
@@ -30,11 +30,11 @@
 
     <div class="row" style="margin-top: 3%">
             <mat-form-field class="col-md-6">
-                <mat-label>Longitud</mat-label>
+                <mat-label>Longitud:</mat-label>
                 <input matInput [(ngModel)]="longitud">
             </mat-form-field>
             <mat-form-field class="col-md-6">
-                <mat-label>Días</mat-label>
+                <mat-label>Días:</mat-label>
                 <mat-select [(ngModel)]="idDias">
                     <mat-option value="-1"> [Todos] </mat-option>
                     <mat-option *ngFor="let aux of lstDias" [value]="aux.idDataCatalogo">
@@ -53,32 +53,32 @@
     
         <mat-table #table class="mat-cell" [dataSource]="dataSource">
             <ng-container matColumnDef="idEjemplo">
-                <mat-header-cell mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+                <mat-header-cell mat-header-cell *matHeaderCellDef>Código:</mat-header-cell>
                 <mat-cell *matCellDef="let aux">{{ aux.idEjemplo }}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="descripcion">
-                <mat-header-cell mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+                <mat-header-cell mat-header-cell *matHeaderCellDef>Descripción:</mat-header-cell>
                 <mat-cell *matCellDef="let aux">{{ aux.descripcion}}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="dias">
-                <mat-header-cell mat-header-cell *matHeaderCellDef>Días</mat-header-cell>
+                <mat-header-cell mat-header-cell *matHeaderCellDef>Días:</mat-header-cell>
                 <mat-cell *matCellDef="let aux">{{ aux.dias.descripcion}}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="longitud">
-                <mat-header-cell mat-header-cell *matHeaderCellDef>Longitud</mat-header-cell>
+                <mat-header-cell mat-header-cell *matHeaderCellDef>Longitud:</mat-header-cell>
                 <mat-cell *matCellDef="let aux">{{ aux.longitud}}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="pais">
-                <mat-header-cell mat-header-cell *matHeaderCellDef>País</mat-header-cell>
+                <mat-header-cell mat-header-cell *matHeaderCellDef>País:</mat-header-cell>
                 <mat-cell *matCellDef="let aux">{{ aux.pais.nombre}}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="ubigeo">
-                <mat-header-cell mat-header-cell *matHeaderCellDef>Ubigeo</mat-header-cell>
+                <mat-header-cell mat-header-cell *matHeaderCellDef>Ubigeo:</mat-header-cell>
                 <mat-cell *matCellDef="let aux">{{ aux.ubigeo.departamento }} - {{ aux.ubigeo.provincia }} - {{
                     aux.ubigeo.distrito }}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="estado">
-                <mat-header-cell mat-header-cell *matHeaderCellDef>Estado</mat-header-cell>
+                <mat-header-cell mat-header-cell *matHeaderCellDef>Estado:</mat-header-cell>
                 <mat-cell *matCellDef="let aux">{{ aux.estado == 1 ? "Activo" : "Inactivo" }}</mat-cell>
             </ng-container>
             

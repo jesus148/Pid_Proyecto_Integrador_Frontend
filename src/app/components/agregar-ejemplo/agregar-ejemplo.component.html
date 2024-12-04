@@ -4,42 +4,42 @@
 <form [formGroup]="formRegistrar">
                 <div class="row">
                         <mat-toolbar color="primary" >
-                        <span>Registra Ejemplo</span>
+                        <span>Registrar Ejemplo</span>
                         </mat-toolbar>
                 </div>
                 <div  class="row"  style="margin-top: 3%">
                             <mat-form-field class="col-md-4">
-                                <mat-label>Nombre</mat-label>
+                                <mat-label>Nombre:</mat-label>
                                 <input  matInput [(ngModel)] ="ejemplo.descripcion" formControlName="validaDescripcion">
                                 <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched">
                                     <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')">
-                                        La descripción es requerida
+                                        La descripción es obligatoria
                                     </span>
                                     <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('pattern')">
-                                        La descripción es de 3 a 30 caracteres
+                                        La descripción debe contener de 3 a 30 caracteres
                                     </span>
                                     <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('existeDescripcion')">
-                                        La descripción ya existe
+                                        La descripción ya existe!
                                     </span>
                                 </mat-hint>
                             </mat-form-field>
 
                             <mat-form-field class="col-md-4">
-                                <mat-label>Longitud</mat-label>
+                                <mat-label>Longitud:</mat-label>
                                 <input matInput [(ngModel)]="ejemplo.longitud" formControlName="validaLongitud">
                                 <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaLongitud.touched">
                                     <span *ngIf="formRegistrar.controls.validaLongitud.hasError('required')">
-                                        La longitud es requerido
+                                        La longitud es requerida
                                     </span>
                                     <span *ngIf="formRegistrar.controls.validaLongitud.hasError('min')">
-                                        La longitud es requerido
+                                        La longitud es requerida
                                     </span>
                                 </mat-hint>
                             </mat-form-field>
 
 
                             <mat-form-field class="col-md-4">
-                                <mat-label>País</mat-label>
+                                <mat-label>País:</mat-label>
                                 <mat-select [(ngModel)]="ejemplo.pais!.idPais" formControlName="validaPais">
                                     <mat-option value="-1"> [Seleccione] </mat-option>
                                     <mat-option *ngFor="let x of lstPais" [value]="x.idPais">
@@ -48,7 +48,7 @@
                                 </mat-select>
                                 <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaPais.touched">
                                     <span *ngIf="formRegistrar.controls.validaPais.hasError('min')">
-                                        El país es requerido
+                                        El país es requerido.
                                     </span>
                                 </mat-hint>
                             </mat-form-field>
@@ -65,7 +65,7 @@
                         </mat-select>
                         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDepartamento.touched">
                             <span *ngIf="formRegistrar.controls.validaDepartamento.hasError('min')">
-                                El departamento es requerido
+                                El Departamento es requerido
                             </span>
                         </mat-hint>
                     </mat-form-field>
@@ -80,7 +80,7 @@
                         </mat-select>
                         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaProvincia.touched">
                             <span *ngIf="formRegistrar.controls.validaProvincia.hasError('min')">
-                                La provincia es requerido
+                                La provincia es requerida
                             </span>
                         </mat-hint>
                     </mat-form-field>
@@ -95,7 +95,7 @@
                     </mat-select>
                     <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDistrito.touched">
                         <span *ngIf="formRegistrar.controls.validaDistrito.hasError('min')">
-                            El distrito es requerido
+                            El Distrito es requerido
                         </span>
                     </mat-hint>
                 </mat-form-field>
@@ -112,7 +112,7 @@
                         </mat-select>
                         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDias.touched">
                             <span *ngIf="formRegistrar.controls.validaDias.hasError('min')">
-                                El días es requerido
+                                Los días son requeridos
                             </span>
                         </mat-hint>
                     </mat-form-field>
@@ -127,7 +127,7 @@
                         </mat-select>
                         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaPrestatario.touched">
                             <span *ngIf="formRegistrar.controls.validaPrestatario.hasError('min')">
-                                El prestatario es requerido
+                                El Prestatario es requerido
                             </span>
                         </mat-hint>
                     </mat-form-field>
@@ -140,7 +140,7 @@
                 <div class="row  mt-4">
                   <div class="col-md-12">
                     <div class=" d-flex justify-content-end ">
-                      <p>No tienes una cuenta ? <a [routerLink]="['/Registrer']">Registrate</a></p>
+                      <p>No tienes una cuenta? <a [routerLink]="['/Registrer']">Registrate</a></p>
                     </div>
                   </div>
                 </div>

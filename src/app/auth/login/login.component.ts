@@ -93,7 +93,7 @@ export class LoginComponent implements OnInit {
               Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: "Usuario no Autorizado",
+                text: "Usuario No Autorizado",
               })
 
           }
