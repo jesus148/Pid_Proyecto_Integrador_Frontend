@@ -16,10 +16,10 @@
                       <input  matInput  [(ngModel)] ="proyecto.nombre" formControlName="validaNombre"   >
                       <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaNombre.touched">
                        <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')" >
-                           Ingrese un  proyecto
+                           Ingrese un  proyecto.
                        </span>
                        <span *ngIf="formRegistrar.controls.validaNombre.hasError('pattern')">
-                       mínimo 3 carácteres
+                       mínimo son 3 carácteres
                     </span>
                    </mat-hint>
                    </mat-form-field>
@@ -30,7 +30,7 @@
                        <input  matInput   [(ngModel)] ="proyecto.descripcion" formControlName="validaDescripcion"  >
                        <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched" >
                          <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')" >
-                             Ingrese una  Descripción
+                             Ingrese una  Descripción.
                          </span>
                      </mat-hint>
                    </mat-form-field>
