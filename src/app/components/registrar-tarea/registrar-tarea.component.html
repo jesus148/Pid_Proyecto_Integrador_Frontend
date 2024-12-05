@@ -6,7 +6,7 @@
     <form action="" class="p-2 " [formGroup]="formRegistrar">
      <div class="row m-2">
        <div class="col-md-12 ">
-         <h3>Registrar Tarea</h3>
+         <h3>Registrar  Tarea</h3>
        </div>
      </div>
      <div class="row mt-5">
@@ -15,7 +15,7 @@
         <input  matInput   [(ngModel)] ="objtarea.nombre" formControlName="validaNombre" >
         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombre.touched" >
          <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')" >
-             Ingrese Nombre
+             Ingrese un  Nombre
          </span>
      </mat-hint>
      </mat-form-field>
@@ -39,7 +39,7 @@
         <mat-datepicker #picker></mat-datepicker>
         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaVencimiento.touched">
           <span *ngIf="formRegistrar.controls.validaVencimiento.hasError('required')">
-              fecha de vencimiento es requerida
+              La fecha de vencimiento es requerida
           </span>
 
       </mat-hint>

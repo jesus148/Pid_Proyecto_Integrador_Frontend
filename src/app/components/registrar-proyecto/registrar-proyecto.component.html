@@ -7,7 +7,7 @@
                   <form action="" [formGroup]="formRegistrar" class="p-2 ">
                    <div class="row m-2">
                      <div class="col-md-12 ">
-                       <h3>Registrar Proyecto</h3>
+                       <h3>Registrar un Proyecto</h3>
                      </div>
                    </div>
                    <div class="row mt-5">
@@ -16,7 +16,7 @@
                       <input  matInput  [(ngModel)] ="proyecto.nombre" formControlName="validaNombre"   >
                       <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaNombre.touched">
                        <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')" >
-                           Ingrese proyecto
+                           Ingrese un  proyecto
                        </span>
                        <span *ngIf="formRegistrar.controls.validaNombre.hasError('pattern')">
                        mínimo 3 carácteres
@@ -30,7 +30,7 @@
                        <input  matInput   [(ngModel)] ="proyecto.descripcion" formControlName="validaDescripcion"  >
                        <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched" >
                          <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')" >
-                             Ingrese  Descripción
+                             Ingrese una  Descripción
                          </span>
                      </mat-hint>
                    </mat-form-field>
