@@ -14,14 +14,11 @@
         <div class="row">
           <mat-form-field class="col-md-12">
             <mat-label>Nombres:</mat-label>
-           <input  matInput formControlName="validaNombres" [(ngModel)] ="usuario.nombres"
-           minlength="2" (keypress)="onKeyPress($event,'nombres')">
+            <input  matInput   [(ngModel)] ="usuario.nombres" formControlName="validaNombres" >
+
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombres.touched">
             <span class="" *ngIf="formRegistrar.controls.validaNombres.hasError('required')">
               Ingrese Nombres
-            </span>
-            <span *ngIf="formRegistrar.controls.validaNombres.hasError('minlength')">
-              Debe ingresar al menos 2 caracteres
             </span>
         </mat-hint>
         </mat-form-field>
@@ -34,9 +31,6 @@
            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaApellidos.touched">
             <span class="" *ngIf="formRegistrar.controls.validaApellidos.hasError('required')">
               Ingrese Apellidos
-            </span>
-            <span *ngIf="formRegistrar.controls.validaApellidos.hasError('minlength')">
-              Debe ingresar al menos 2 caracteres
             </span>
         </mat-hint>
         </mat-form-field>

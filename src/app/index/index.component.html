@@ -20,12 +20,12 @@
                   <li><a href="/app/upcoming">Próximo</a></li>
                   <li><a href="/app/filters-labels">Filtros y Etiquetas</a></li>
                   <li class="nav-item " *ngIf="isLogged">
-                    <a>Registrar Proyecto</a>               
-                    <button class="nav-link text-dark add-project-icon bi bi-plus-circle-fill" (click)="openProjectForm()"  ></button>                    
+                    <a>Registrar Proyecto</a>
+                    <button class="nav-link text-dark add-project-icon bi bi-plus-circle-fill" (click)="openProjectForm()"  ></button>
                   </li>
               </ul>
               <br>
-              <br>     
+              <br>
               <div class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
                 <a class="nav-link text-dark" style="cursor: pointer;"><i class="bi bi-x-circle-fill"></i> Cerrar Sesión</a> <!-- Botón para cerrar sesión -->
               </div>

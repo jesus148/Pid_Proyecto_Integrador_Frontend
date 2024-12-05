@@ -36,24 +36,21 @@ export class RegistrerComponent {
     fechaNacimiento: new Date()
   }
 
-
   formRegistrar = this.formBuilder.group({
     validaNombres: ['', [Validators.required]],
     validaApellidos: ['', [Validators.required]],
-    validaDni: ['', [Validators.required, ]],
+    validaDni: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
     validaUserName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]{6,30}')]],
     validacontrasena: [
       '',
       [
         Validators.required,
-        (
-          '^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\\d!@#$%^&*(),.?":{}|<>]{8,}$'
-        ),
+        Validators.pattern('^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\\d!@#$%^&*(),.?":{}|<>]{8,}$'),
       ],
     ],
-    validaEmail: ['', [Validators.required , Validators.pattern("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")]],
+    validaEmail: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$')]],
     validaFechaInicio: ['', [Validators.required]],
-});
+  });
 
 
 
