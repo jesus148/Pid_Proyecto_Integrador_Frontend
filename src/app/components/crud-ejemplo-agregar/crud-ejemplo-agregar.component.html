@@ -4,7 +4,7 @@
 
         <div class="row">
             <mat-toolbar color="primary">
-                <span>Registra Ejemplo</span>
+                <span>Registrar Ejemplo</span>
             </mat-toolbar>
         </div>
         <div class="row" style="margin-top: 3%">
@@ -16,7 +16,7 @@
                         La descripción es requerida
                     </span>
                     <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('pattern')">
-                        La descripción es de 3 a 30 caracteres
+                        La descripción debe contener de 3 a 30 caracteres
                     </span>
                     <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('existeDescripcion')">
                         La descripción ya existe
