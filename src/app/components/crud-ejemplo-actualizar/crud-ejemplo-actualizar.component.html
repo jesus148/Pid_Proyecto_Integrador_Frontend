@@ -4,19 +4,19 @@
 
             <div class="row">
                 <mat-toolbar color="primary">
-                    <span>Actualiza Ejemplo</span>
+                    <span>Actualizar Ejemplo</span>
                 </mat-toolbar>
             </div>
             <div class="row" style="margin-top: 3%">
                 <mat-form-field class="col-md-4">
-                    <mat-label>Nombre</mat-label>
+                    <mat-label>Nombre:</mat-label>
                     <input matInput [(ngModel)]="ejemplo.descripcion" formControlName="validaDescripcion">
                     <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched">
                         <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')">
-                            La descripción es requerida
+                            La descripción es requerida.
                         </span>
                         <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('pattern')">
-                            La descripción es de 3 a 30 caracteres
+                            La descripción debe contener de 3 a 30 caracteres
                         </span>
                         <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('existeDescripcion')">
                             La descripción ya existe
@@ -29,10 +29,10 @@
                     <input matInput [(ngModel)]="ejemplo.longitud" formControlName="validaLongitud">
                     <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaLongitud.touched">
                         <span *ngIf="formRegistrar.controls.validaLongitud.hasError('required')">
-                            La longitud es requerido
+                            La longitud es requerida
                         </span>
                         <span *ngIf="formRegistrar.controls.validaLongitud.hasError('min')">
-                            La longitud es requerido
+                            La longitud es requerida
                         </span>
                     </mat-hint>
                 </mat-form-field>
@@ -82,7 +82,7 @@
                     </mat-select>
                     <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaProvincia.touched">
                         <span *ngIf="formRegistrar.controls.validaProvincia.hasError('min')">
-                            La provincia es requerido
+                            La provincia es requerida
                         </span>
                     </mat-hint>
                 </mat-form-field>
@@ -114,7 +114,7 @@
                     </mat-select>
                     <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDias.touched">
                         <span *ngIf="formRegistrar.controls.validaDias.hasError('min')">
-                            El días es requerido
+                            Los días son requeridos
                         </span>
                     </mat-hint>
                 </mat-form-field>
@@ -138,7 +138,7 @@
             <div class="row" style="margin-top: 3%; margin-left: auto; margin-right: auto; max-width: fit-content;">
                 <div mat-dialog-actions>
                     <button mat-raised-button type="submit" color="primary" [disabled]="formRegistrar.invalid"
-                        [mat-dialog-close]="1" (click)="actualiza()">Actualiza
+                        [mat-dialog-close]="1" (click)="actualiza()">Actualizar
                     </button>
                     <button mat-button type="submit" (click)="salir()" [mat-dialog-close]="2">Salir
                     </button>
