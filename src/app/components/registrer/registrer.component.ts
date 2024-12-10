@@ -46,7 +46,7 @@ export class RegistrerComponent {
       '',
       [
         Validators.required,
-        (
+        Validators.pattern(
           '^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\\d!@#$%^&*(),.?":{}|<>]{8,}$'
         ),
       ],
@@ -55,7 +55,11 @@ export class RegistrerComponent {
     validaFechaInicio: ['', [Validators.required]],
 });
 
-
+hide = signal(true);
+clickEvent(event: MouseEvent) {
+  this.hide.set(!this.hide());
+  event.stopPropagation();
+}
 
   constructor(private utilservice:UtilService,
     private usuarioService:UsuarioRegistro,
@@ -66,12 +70,6 @@ export class RegistrerComponent {
 
   }
 
-
-  hide = signal(true);
-clickEvent(event: MouseEvent) {
-  this.hide.set(!this.hide());
-  event.stopPropagation();
-}
   Registra(){
     this.usuarioService.RegistrarUser(this.usuario).subscribe(
       x=>{
@@ -86,10 +84,10 @@ clickEvent(event: MouseEvent) {
 
   onKeyPress(event: KeyboardEvent, field: string): void {
     const charCode = event.charCode;
-
+  
     // Si el campo es DNI (solo permitir números, máximo 8 dígitos)
-
-
+   
+  
     // Si el campo es Nombres o Apellidos (solo permitir letras y espacios, mínimo 2 caracteres)
     if (field === 'nombres' || field === 'apellidos') {
       // Permitir solo letras y espacio
