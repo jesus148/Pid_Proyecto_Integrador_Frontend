@@ -40,7 +40,7 @@ export const routes: Routes = [
 
 
   { path: 'login', component: LoginComponent },
-  { path: 'Registrer', component: RegistrerComponent },
+  { path: 'RegistrarUser', component: RegistrerComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
   ];
 

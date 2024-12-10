@@ -1,8 +1,39 @@
 <div class="todo">
-
   <app-menu></app-menu>
-  <div class=" container text-center">
-      <div *ngIf="isLogged; else loggedOut"><h5>Bienvenido {{nombreUsuario}}</h5></div>
-      <ng-template #loggedOut><h5>Para ingresar debe Inicia Sesión</h5></ng-template>
+  <div class="container">
+    <div *ngIf="isLogged; else loggedOut">
+      <div class="sidebar-container" [ngClass]="{'open': isOpen}">
+          <nav class="sidebar">
+              <div class="user-section">
+                  <button class="user-button" aria-label="Configuración">
+                      <img src="https://dcff1xvirvpfp.cloudfront.net/5dd316ec65c04b0e888bc5b1f0126dc4_big.jpg" alt="Usuario">
+                      <span>{{ nombreUsuario || 'Usuario' }}</span> <!-- Mostrar nombre de usuario -->
+                  </button>
+              </div>
+              <div class="nav-links">
+                  <a href="/app/notifications" class="nav-link">Notificaciones</a>
+                  <button class="add-project-icon bi bi-plus-circle-fill"> Añadir tarea</button>
+              </div>
+              <ul class="menu">
+                  <li><a href="/app/inbox">Bandeja de entrada</a></li>
+                  <li><a href="/app/today">Hoy</a></li>
+                  <li><a href="/app/upcoming">Próximo</a></li>
+                  <li><a href="/app/filters-labels">Filtros y Etiquetas</a></li>
+                  <li class="nav-item " *ngIf="isLogged">
+                    <a>Registrar Proyecto</a>
+                    <button class="nav-link text-dark add-project-icon bi bi-plus-circle-fill" (click)="openProjectForm()"  ></button>
+                  </li>
+              </ul>
+              <br>
+              <br>
+              <div class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
+                <a class="nav-link text-dark" style="cursor: pointer;"><i class="bi bi-x-circle-fill"></i> Cerrar Sesión</a> <!-- Botón para cerrar sesión -->
+              </div>
+          </nav>
+      </div>
+      <button class="toggle-button" (click)="toggleSidebar()">☰</button>
+      <app-registrar-proyecto *ngIf="isFormOpen" (close)="isFormOpen = false"></app-registrar-proyecto>
+  </div>
+      <ng-template #loggedOut><h5 class="centered-text">Para ingresar debe Inicia Sesión</h5></ng-template>
   </div>
 </div>
