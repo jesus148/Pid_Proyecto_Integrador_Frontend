@@ -38,6 +38,8 @@ export class ProyectoService {
     return this.http.post(baseUrlPruebaTask+"/registrar",data);
   }
 
+  
+
 
 
 }
