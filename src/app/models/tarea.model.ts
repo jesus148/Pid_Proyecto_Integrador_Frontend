@@ -7,6 +7,7 @@ export class Tarea {
   descripcion?:string;
   fechaVencimiento?:Date;
   prioridad?:number;
+  estadoTarea?:string;
   fechaCreacion?:Date;
   proyecto?:Proyecto;
 }
