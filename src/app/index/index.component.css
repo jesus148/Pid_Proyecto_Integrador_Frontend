@@ -163,3 +163,89 @@ body {
     color: #0056b3; /* Cambia el color al pasar el mouse */
 }
 
+/* Contenedor general */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(to right, #ff8a00, #e52e71); /* Fondo degradado */
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+  
+  /* Estilo para el título */
+  .welcome-message {
+    font-family: 'Poppins', sans-serif; /* Tipografía más moderna */
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Estilo para el subtítulo */
+  .welcome-submessage {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo más oscuro para contraste */
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.4s ease, transform 0.3s ease;
+  }
+  
+  /* Imagen de bienvenida */
+  .welcome-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    transition: transform 0.3s ease, opacity 0.4s ease;
+  }
+  
+  /* Efectos interactivos */
+  .welcome-container:hover {
+    transform: translateY(-10px); /* Eleva ligeramente el contenedor */
+  }
+  
+  .welcome-container:hover .welcome-message {
+    transform: scale(1.05); /* Aumenta el tamaño del mensaje */
+  }
+  
+  .welcome-container:hover .welcome-submessage {
+    opacity: 0.9; /* Efecto de opacidad para el subtítulo */
+    transform: translateY(5px);
+  }
+  
+  .welcome-container:hover .welcome-image {
+    transform: scale(1.03); /* Efecto de aumento en la imagen */
+    opacity: 0.9; /* Suaviza la imagen */
+  }
+  
+  /* Animación suave para cargar */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .welcome-container {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  
