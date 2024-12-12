@@ -63,7 +63,7 @@ export class ProyectoService {
 
 
   UpdateTask(data:Tarea):Observable<any>{
-    return this.http.put<void>(baseUrlPruebaUpdatetask+"/actualizar/",data);
+    return this.http.put(baseUrlPruebaUpdatetask+"/actualizar",data);
   }
 
 }

@@ -25,6 +25,5 @@ table {
   min-height: 300px;
 }
 
-mat-icon{
-  margin: 3px;
+.acciones .mat-checkbox{
 }

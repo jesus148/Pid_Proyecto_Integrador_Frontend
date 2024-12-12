@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import Swal from 'sweetalert2';
 import { Tarea } from '../../models/tarea.model';
 import { ActualizarTaskComponent } from '../actualizar-task/actualizar-task.component';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -16,7 +18,7 @@ import { ActualizarTaskComponent } from '../actualizar-task/actualizar-task.comp
 @Component({
   selector: 'app-list-tareas',
   standalone: true,
-  imports: [MenuComponent , MatTableModule, MatIconModule ],
+  imports: [MenuComponent , MatTableModule, MatIconModule , MatCheckboxModule, FormsModule],
   templateUrl: './list-tareas.component.html',
   styleUrl: './list-tareas.component.css'
 })
@@ -52,11 +54,7 @@ export class ListTareasComponent {
 
   openDialogActualizar(obj: Tarea) {
     console.log(">>> openDialogActualizar [ini]");
-    console.log("obj: ", obj);
-
-
-
-
+    // console.log("obj: ", obj);
 
        // llama al modal o al otro componnete pa q se muestre y le envia el objeto solo 1
     // osea pa actualizar le envia todo el objeto
@@ -88,5 +86,17 @@ export class ListTareasComponent {
       })
     })
   }
+
+  updateEstado(obj:Tarea) {
+    console.log(">>> updateEstado [ini]");
+    console.log("obj: ", obj);
+    obj.estadoTarea = obj.estadoTarea == "PENDIENTE" ||  "PROGRESO" || "RECHAZADA" ? "DESARROLLADA" : "DESARROLLADA";
+    this.proyecService.UpdateTask(obj).subscribe(
+        x => {
+            this.obtenerTareas();
+        }
+    );
+     console.log(">>> updateEstado [fin]");
+}
 
 }

@@ -9,11 +9,12 @@ import { AppMaterialModule } from '../../app.material.module';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-actualizar-task',
   standalone: true,
-  imports: [MenuComponent , AppMaterialModule, FormsModule, CommonModule, MenuComponent,ReactiveFormsModule ,RouterLink],
+  imports: [MenuComponent , AppMaterialModule, FormsModule, CommonModule, MenuComponent,ReactiveFormsModule ,RouterLink,MatCheckboxModule, FormsModule],
   templateUrl: './actualizar-task.component.html',
   styleUrl: './actualizar-task.component.css'
 })
@@ -24,9 +25,9 @@ export class ActualizarTaskComponent {
   objtarea:Tarea={
     nombre:'',
     descripcion:'',
-    estadoTarea:'',
     fechaVencimiento:new Date(),
     prioridad:-1,
+    estadoTarea:'',
     proyecto: { idProyecto: -1 }
   }
 
