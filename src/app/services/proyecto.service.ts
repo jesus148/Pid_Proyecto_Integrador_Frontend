@@ -45,6 +45,8 @@ export class ProyectoService {
     return this.http.post(baseUrlPruebaTask+"/registrar",data);
   }
 
+  
+
 
   GetTask():Observable<Proyecto[]>{
     return this.http.get<Proyecto[]>(baseUrlPruebaGet+"/listado");
