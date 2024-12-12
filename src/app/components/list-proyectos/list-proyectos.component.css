@@ -1,0 +1,29 @@
+.todo{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('../../../assets/fondo.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .container{
+    border-radius: 20px;
+    border-radius: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(1%, 10%);
+    min-height: 600px;
+  }
+  
+  
+  table {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 30px;
+    max-height: 1000px;
+    min-height: 300px;
+  }
+  
+  mat-icon{
+    margin: 3px;
+  }
