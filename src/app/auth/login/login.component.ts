@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   isLogged = false;
   isLoginFail = false;
-  isLoading = false; // Variable que controla el estado de carga
   loginUsuario: LoginUsuario = {};
   roles: string[] = [];
   errMsj!: string;
@@ -61,7 +60,6 @@ export class LoginComponent implements OnInit {
 
 
   onLogin(): void {
-    this.isLoading = true; // Activa el loading screen cuando se hace clic en "Ingresar"
     this.authService.login(this.loginUsuario).subscribe(
       (data:any) => {
           this.isLogged = true;
@@ -74,9 +72,6 @@ export class LoginComponent implements OnInit {
 
           this.roles = data.authorities;
           this.router.navigate(['/']);
-
-           // Detiene el loading
-        this.isLoading = false;
 
           console.log("onLogin() >> token >>> " +  this.tokenService.getToken());
           console.log("onLogin() >> setUserName >>> " +  this.tokenService.getUserName());
@@ -93,10 +88,6 @@ export class LoginComponent implements OnInit {
           this.isLogged = false;
           this.errMsj = err.message;
           console.log(err);
-
-
-             // Detiene el loading y muestra el error
-        this.isLoading = false;
           if (err.status == 401){
 
               Swal.fire({

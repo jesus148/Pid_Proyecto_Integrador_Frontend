@@ -1,98 +1,65 @@
-/* Estilo principal */
-.todo {
+.todo{
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to right, #ff8a00, #e52e71);
-  position: relative;
-}
-
-/* Logo centrado en la parte superior */
-.logo-container-center {
-  display: flex;
-  justify-content: center;
-}
-
-.logo {
-  max-width: 150px; /* Tamaño ajustado del logo */
-  height: auto;
-  border-radius: 10px; /* Opcional: bordes redondeados */
-}
-
-/* Contenedor del login */
-.login-container {
   width: 100%;
-  max-width: 400px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background-image: url('../../../assets/fondo.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
-.title {
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #ff5722;
+
+
+
+.container h3{
+  font-family: "New Amsterdam", sans-serif;
+  font-weight:500;
+  font-style: normal;
+  font-size: 40px;
+  color: orange;
+  text-align: center;
 }
 
-/* Botón de ingresar */
-.btn-ingresar {
-  width: 150px;
+
+.container {
+  height: 450px !important;
+  width:  400px !important;
+  position: absolute;
+  background-color: white;
+  border-radius: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.my-class{
+  width: 150px!important;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.container p , a{
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
   font-size: 16px;
-  background-color: #ff5722;
-  color: white;
-  transition: all 0.3s ease;
+  color: #00000090;
+  text-align: center;
 }
 
-.btn-ingresar:hover {
-  background-color: #e64a19;
-  transform: scale(1.05);
-}
-
-/* Link de registro */
 .link-azul {
-  color: #1976d2;
-  font-weight: bold;
-  text-decoration: none;
+  color: blue;
+  text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .link-azul:hover {
-  color: #004ba0;
+  color: darkred;
 }
 
-/* Pantalla de carga */
-.loading-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+.link-azul:focus {
+  color: darkred;
+  outline: none;
 }
 
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #ff5722;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1.5s linear infinite;
-}
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.todo p a {
+  text-decoration: none;
 }
