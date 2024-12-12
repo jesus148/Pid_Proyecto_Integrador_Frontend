@@ -1,12 +1,12 @@
 <div class="todo">
-  <app-menu></app-menu>
+
 
   <div class="container d-flex justify-content-center align-items-center w-25  bg-light">
 
     <form action="" class="p-2 " [formGroup]="formRegistrar">
      <div class="row m-2">
        <div class="col-md-12 ">
-         <h3>Registrar  Tarea</h3>
+         <h3>Actualizar Tarea</h3>
        </div>
      </div>
      <div class="row mt-5">
@@ -45,6 +45,23 @@
       </mat-hint>
     </mat-form-field>
    </div>
+   <div class="row mt-4">
+    <mat-form-field class="col-md-12">
+      <mat-label>Estado Tarea</mat-label>
+      <mat-select [(ngModel)]="objtarea.estadoTarea" formControlName="validaEstadoTarea" >
+       <mat-option value="-1"> [Seleccione] </mat-option>
+       <mat-option *ngFor="let x of estadoTarea" [value]="x">
+           {{x}}
+       </mat-option>
+   </mat-select>
+      <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaEstadoTarea.touched">
+        <span *ngIf="formRegistrar.controls.validaEstadoTarea.hasError('min')" >
+            Ingrese su Estado Tarea
+        </span>
+    </mat-hint>
+  </mat-form-field>
+</div>
+
      <div class="row mt-4">
        <mat-form-field class="col-md-12">
          <mat-label>Prioridad</mat-label>
@@ -80,7 +97,15 @@
    </div>
      <div class="row m-3">
        <div class="col-12 text-center m-1">
-         <button mat-flat-button color="warn" class="my-class" [disabled]="formRegistrar.invalid" (click)="registra()">Registrar</button>
+         <button mat-flat-button color="warn" class="my-class" [disabled]="formRegistrar.invalid" [mat-dialog-close]="1" (click)="actualiazar()">Actualizar</button>
+
+
+         <button mat-button
+         type="submit"
+         (click)="salir()"
+         color="primary"
+         [mat-dialog-close]="2"
+         >Salir </button>
        </div>
      </div>
    </form>

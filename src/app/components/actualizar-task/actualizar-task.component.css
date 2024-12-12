@@ -1,0 +1,24 @@
+
+.todo{
+border-radius: 80px !important;
+}
+
+
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  min-height: 300px !important;
+
+}
+
+.container form{
+  height: 700px;
+  min-height: 300px !important;
+}
+.container > * {
+  width: 80%;
+}
