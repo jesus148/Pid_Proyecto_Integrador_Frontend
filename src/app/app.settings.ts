@@ -21,5 +21,13 @@ export class AppSettings {
 
 
 
+    public static API_ENDPOINT_GET_TASK='http://Todo-list-project-env.eba-mavhznkn.us-east-2.elasticbeanstalk.com/api';
 
+
+
+    public static API_ENDPOINT_DELETE_TASK='http://Todo-list-project-env.eba-mavhznkn.us-east-2.elasticbeanstalk.com/api';
+
+
+
+    public static API_ENDPOINT_UPDATE_TASK='http://Todo-list-project-env.eba-mavhznkn.us-east-2.elasticbeanstalk.com/api';
  }
