@@ -34,6 +34,16 @@
       <button class="toggle-button" (click)="toggleSidebar()">☰</button>
       <app-registrar-proyecto *ngIf="isFormOpen" (close)="isFormOpen = false"></app-registrar-proyecto>
   </div>
-      <ng-template #loggedOut><h5 class="centered-text">Para ingresar debe Inicia Sesión</h5></ng-template>
+
+  <ng-template #loggedOut>
+    <div class="welcome-container">
+      <h5 class="welcome-message">¡Bienvenido a TodoIst!</h5>
+      <p class="welcome-submessage">Organiza tus tareas y alcanza tus objetivos de manera sencilla y eficiente.</p>
+      <img class="welcome-image" src="https://logowik.com/content/uploads/images/todoist3192.jpg" alt="Imagen de bienvenida">
+    </div>
+  </ng-template>
+  
+  
+    
   </div>
 </div>

@@ -1,139 +1,148 @@
-
-
-
-
 <div class="todo d-flex justify-content-center align-items-center">
-
   <div class="container bg-white">
+ <!-- Logo centrado -->
+ <div class="logo-container">
+  <img src="https://i.pcmag.com/imagery/reviews/00f5bRMZER00ttT8JSd0jvO-28.fit_scale.size_1028x578.v1681233198.jpg" alt="Logo" class="logo" />
+</div>
+
     <div class="d-flex justify-content-center">
-      <form action=""  [formGroup]="formRegistrar">
+      <form action="" [formGroup]="formRegistrar">
         <div class="row m-3">
-          <div class="col-md-12 ">
+          <div class="col-md-12">
             <h3>Registro Usuario</h3>
           </div>
         </div>
         <div class="row">
           <mat-form-field class="col-md-12">
+            <mat-icon matPrefix>person</mat-icon> <!-- Ícono de persona -->
             <mat-label>Nombres:</mat-label>
-            <input  matInput   [(ngModel)] ="usuario.nombres" formControlName="validaNombres" >
+            <input matInput formControlName="validaNombres" [(ngModel)]="usuario.nombres" minlength="2" (keypress)="onKeyPress($event,'nombres')" >
+            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombres.touched">
+              <span *ngIf="formRegistrar.controls.validaNombres.hasError('required')">
+                Ingrese Nombres
+              </span>
+              <span *ngIf="formRegistrar.controls.validaNombres.hasError('minlength')">
+                Debe ingresar al menos 2 caracteres
+              </span>
+            </mat-hint>
+          </mat-form-field>
+        </div>
 
-           <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombres.touched">
-            <span class="" *ngIf="formRegistrar.controls.validaNombres.hasError('required')">
-              Ingrese Nombres
-            </span>
-            <span *ngIf="formRegistrar.controls.validaNombres.hasError('minlength')">
-              Debe ingresar al menos 2 caracteres 
-            </span>
-        </mat-hint>
-        </mat-form-field>
-        </div>
         <div class="row">
           <mat-form-field class="col-md-12">
+            <mat-icon matPrefix>person_add</mat-icon> <!-- Ícono de apellidos -->
             <mat-label>Apellidos:</mat-label>
-           <input  matInput formControlName="validaApellidos" [(ngModel)] ="usuario.apellidos"
-           minlength="2"(keypress)="onKeyPress($event,'apellidos')" >
-           <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaApellidos.touched">
-            <span class="" *ngIf="formRegistrar.controls.validaApellidos.hasError('required')">
-              Ingrese Apellidos
-            </span>
-        </mat-hint>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-12">
-          <mat-label>DNI:</mat-label>
-         <input  matInput formControlName="validaDni"  [(ngModel)] ="usuario.dni"
-         (keypress)="onKeyPress($event,'dni')"  
-         maxlength="8"  
-         minlength="8"  >
-         <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDni.touched">
-          <span class="" *ngIf="formRegistrar.controls.validaDni.hasError('required')">
-            Ingrese DNI
-          </span>
-          <span *ngIf="formRegistrar.controls.validaDni.hasError('minlength') || formRegistrar.controls.validaDni.hasError('maxlength')">
-            El DNI debe tener exactamente 8 dígitos
-          </span>
-      </mat-hint>
-      </mat-form-field>
-      </div>
+            <input matInput formControlName="validaApellidos" [(ngModel)]="usuario.apellidos" minlength="2" (keypress)="onKeyPress($event,'apellidos')">
+            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaApellidos.touched">
+              <span *ngIf="formRegistrar.controls.validaApellidos.hasError('required')">
+                Ingrese Apellidos
+              </span>
+              <span *ngIf="formRegistrar.controls.validaApellidos.hasError('minlength')">
+                Debe ingresar al menos 2 caracteres
+              </span>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+
         <div class="row">
           <mat-form-field class="col-md-12">
-            <mat-label>Nombre de Usuario</mat-label>
-           <input  matInput formControlName="validaUserName"  [(ngModel)] ="usuario.login">
-           <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaUserName.touched">
-            <span class="" *ngIf="formRegistrar.controls.validaUserName.hasError('pattern')">
-              Nombre de usuario debe contener entre 6 y 30 
-            </span>
-            <span class="" *ngIf="formRegistrar.controls.validaUserName.hasError('required')">
-              ingresar el nombre de usuario
-            </span>
-        </mat-hint>
-        </mat-form-field>
+            <mat-icon matPrefix>credit_card</mat-icon> <!-- Ícono de DNI -->
+            <mat-label>DNI:</mat-label>
+            <input matInput formControlName="validaDni" [(ngModel)]="usuario.dni" (keypress)="onKeyPress($event,'dni')" maxlength="8" minlength="8">
+            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDni.touched">
+              <span *ngIf="formRegistrar.controls.validaDni.hasError('required')">
+                Ingrese DNI
+              </span>
+              <span *ngIf="formRegistrar.controls.validaDni.hasError('minlength') || formRegistrar.controls.validaDni.hasError('maxlength')">
+                El DNI debe tener exactamente 8 dígitos
+              </span>
+            </mat-hint>
+          </mat-form-field>
         </div>
+
+        <div class="row">
+          <mat-form-field class="col-md-12">
+            <mat-icon matPrefix>account_circle</mat-icon> <!-- Ícono de usuario -->
+            <mat-label>Nombre de Usuario</mat-label>
+            <input matInput formControlName="validaUserName" [(ngModel)]="usuario.login">
+            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaUserName.touched">
+              <span *ngIf="formRegistrar.controls.validaUserName.hasError('pattern')">
+                Usuario debe contener 6 y 30 caracteres 
+              </span>
+              <span *ngIf="formRegistrar.controls.validaUserName.hasError('required')">
+                Ingrese el nombre de usuario
+              </span>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+
         <div class="row mt-2">
           <mat-form-field class="col-md-12">
-            <!-- <mat-label>Contraseña</mat-label>
-           <input  matInput formControlName="validacontrasena" [(ngModel)] ="usuario.password"> -->
-           <mat-label>Ingrese su contraseña</mat-label>
-           <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)] ="usuario.password" formControlName="validacontrasena" />
-           <button
-             mat-icon-button
-             matSuffix
-             (click)="clickEvent($event)"
-             [attr.aria-label]="'Hide password'"
-             [attr.aria-pressed]="hide()"
-           >
-             <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-           </button>
-           <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validacontrasena.touched">
-            <span class="" *ngIf="formRegistrar.controls.validacontrasena.hasError('pattern')">
-               Minimo 8 caracteres con (1+%+A)
-            </span>
-            <span class="" *ngIf="formRegistrar.controls.validacontrasena.hasError('required')">
-              ingresar la contraseña
-            </span>
-        </mat-hint>
-        </mat-form-field>
+            <mat-icon matPrefix>lock</mat-icon> <!-- Ícono de contraseña -->
+            <mat-label>Ingrese su contraseña</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="usuario.password" formControlName="validacontrasena">
+            <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
+              <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validacontrasena.touched">
+              <span *ngIf="formRegistrar.controls.validacontrasena.hasError('pattern')">
+                Mínimo 8 caracteres con (1+A+%)
+              </span>
+              <span *ngIf="formRegistrar.controls.validacontrasena.hasError('required')">
+                Ingrese la contraseña
+              </span>
+            </mat-hint>
+          </mat-form-field>
         </div>
+
         <div class="row">
           <mat-form-field class="col-md-12">
-            <mat-label>  Email
-            </mat-label>
-           <input  matInput formControlName="validaEmail"  [(ngModel)] ="usuario.email">
-           <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaEmail.touched">
-            <span class="" *ngIf="formRegistrar.controls.validaEmail.hasError('required')">
-              ingresar Email
-            </span>
-            <span class="" *ngIf="formRegistrar.controls.validaEmail.hasError('pattern')">
-              FORMATO INCORRECTO
-            </span>
-        </mat-hint>
-        </mat-form-field>
+            <mat-icon matPrefix>email</mat-icon> <!-- Ícono de email -->
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="validaEmail" [(ngModel)]="usuario.email">
+            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaEmail.touched">
+              <span *ngIf="formRegistrar.controls.validaEmail.hasError('required')">
+                Ingrese el Email
+              </span>
+              <span *ngIf="formRegistrar.controls.validaEmail.hasError('pattern')">
+                Formato incorrecto
+              </span>
+            </mat-hint>
+          </mat-form-field>
         </div>
+
         <div class="row">
           <mat-form-field class="col-md-12">
+            <mat-icon matPrefix>cake</mat-icon> <!-- Ícono de fecha de nacimiento -->
             <mat-label>Fecha de Nacimiento</mat-label>
-            <input matInput [matDatepicker]="picker"  [(ngModel)] ="usuario.fechaNacimiento" formControlName="validaFechaInicio" >
+            <input matInput [matDatepicker]="picker" [(ngModel)]="usuario.fechaNacimiento" formControlName="validaFechaInicio">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaFechaInicio.touched">
+              <span *ngIf="formRegistrar.controls['validaFechaInicio'].hasError('required')">
+                Ingrese la fecha de nacimiento
+              </span>
+              <span *ngIf="formRegistrar.controls.validaFechaInicio.hasError('ageError')">
+                Debes tener al menos 18 años para registrarte
+              </span>
+            </mat-hint>
+          </mat-form-field>
         </div>
+
         <div class="row mt-2">
           <div class="col-12 text-center">
-            <button mat-flat-button color="warn" class="boton_Registrar  rounded-pill" (click)="Registra()" [disabled]="formRegistrar.invalid">Registrar</button>
+            <button mat-flat-button color="warn" class="boton_Registrar rounded-pill" (click)="Registra()" [disabled]="formRegistrar.invalid">Registrar</button>
           </div>
         </div>
+
         <div class="row mt-2">
           <div class="col-md-12">
-            <div class=" d-flex justify-content-end p-2">
-              <p>Ya Tienes una Cuenta?<a [routerLink]="['/login']" class="link-azul">Inicia Sesión</a></p>
+            <div class="d-flex justify-content-center">
+              <p>Ya tienes una cuenta? <a [routerLink]="['/login']" class="link-azul">Inicia sesión</a></p>
             </div>
           </div>
         </div>
       </form>
     </div>
   </div>
-
 </div>
-
-
