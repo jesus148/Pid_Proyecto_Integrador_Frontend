@@ -9,3 +9,5 @@ export class Usuario {
     usuarioRegistro?: Usuario;
     usuarioActualiza?:Usuario;
 }
+
+

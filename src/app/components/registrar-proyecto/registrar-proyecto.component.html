@@ -1,0 +1,43 @@
+<div class="todo">
+  <app-menu></app-menu>
+  <div class="container d-flex justify-content-center align-items-center w-25  bg-light">
+    <form action="" [formGroup]="formRegistrar" class="p-2 ">
+      <div class="row m-2">
+        <div class="col-md-12 ">
+          <h3>Registrar Proyecto</h3>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <mat-form-field class="col-md-12">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="proyecto.nombre" formControlName="validaNombre">
+          <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombre.touched">
+            <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')">
+              Ingrese proyecto
+            </span>
+            <span *ngIf="formRegistrar.controls.validaNombre.hasError('pattern')">
+              Debe contener mínimo 3 carácteres
+            </span>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="row mt-4">
+        <mat-form-field class="col-md-12">
+          <mat-label>Descripción</mat-label>
+          <input matInput [(ngModel)]="proyecto.descripcion" formControlName="validaDescripcion">
+          <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion.touched">
+            <span *ngIf="formRegistrar.controls.validaDescripcion.hasError('required')">
+              Ingresar Descripción
+            </span>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 text-center m-1">
+          <button mat-flat-button color="warn" class="my-class" [disabled]="formRegistrar.invalid"
+            (click)="registra()">Registrar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

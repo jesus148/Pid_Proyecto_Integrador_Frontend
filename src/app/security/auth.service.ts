@@ -11,7 +11,7 @@ const authURL = AppSettings.API_ENDPOINT+ '/auth';
   providedIn: 'root'
 })
 export class AuthService {
- 
+
 
   constructor(private httpClient: HttpClient) { }
 

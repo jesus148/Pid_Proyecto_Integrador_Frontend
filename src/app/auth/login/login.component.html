@@ -1,9 +1,8 @@
-
 <div class="todo">
   <app-menu></app-menu>
 
  <div class="text-center" *ngIf="isLogged; else loggedOut">
-     <h2>Ya has iniciado sesión</h2>
+     <h2>Ya iniciaste sesión</h2>
  </div>
 
   <ng-template #loggedOut class="">
@@ -32,7 +31,7 @@
                     </div>
                   </div>
                   </form> -->
-                  <form action="" class="p-2 w-75" [formGroup]="formLogin" (ngSubmit)="onLogin()">
+                  <form action="" class="p-2 w-75" [formGroup]="formLogin" >
                    <div class="row m-2">
                      <div class="col-md-12 ">
                        <h3>Iniciar Sesión</h3>
@@ -40,44 +39,44 @@
                    </div>
                    <div class="row mt-5">
                      <mat-form-field class="col-md-12">
-                       <mat-label>UserName</mat-label>
+                       <mat-label>Usuario:</mat-label>
                       <input  matInput formControlName="validaUsername"  [(ngModel)]="loginUsuario.login">
                       <mat-hint style="color: red;" *ngIf="formLogin.controls.validaUsername.touched">
                        <span *ngIf="formLogin.controls.validaUsername.hasError('required')">
-                           Ingrese su UserName
+                           Ingresar Usuario
                        </span>
                    </mat-hint>
                    </mat-form-field>
                    </div>
                    <div class="row mt-4">
                      <mat-form-field class="col-md-12">
-                       <mat-label>Ingrese su Contraseña</mat-label>
+                       <mat-label>Contraseña:</mat-label>
                        <input matInput [type]="hide() ? 'password' : 'text'" formControlName="validaPassword" [(ngModel)]="loginUsuario.password" />
                        <button
-                         mat-icon-button
-                         matSuffix
-                         (click)="clickEvent($event)"
-                         [attr.aria-label]="'Hide password'"
-                         [attr.aria-pressed]="hide()"
-                       >
-                         <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                       </button>
+                       mat-icon-button
+                       matSuffix
+                       (click)="clickEvent($event)"
+                       [attr.aria-label]="'Hide password'"
+                       [attr.aria-pressed]="hide()"
+                     >
+                       <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                     </button>
                        <mat-hint style="color: red;" *ngIf="formLogin.controls.validaPassword.touched">
                          <span *ngIf="formLogin.controls.validaPassword.hasError('required')">
-                             Ingrese su Contraseña
+                             Ingresar contraseña
                          </span>
                      </mat-hint>
                    </mat-form-field>
                  </div>
                    <div class="row m-3">
                      <div class="col-12 text-center m-1">
-                       <button mat-flat-button color="warn" class="my-class" [disabled]="formLogin.invalid">Ingresar</button>
+                       <button mat-flat-button color="warn" class="my-class" [disabled]="formLogin.invalid" (click)="onLogin()">Ingresar</button>
                      </div>
                    </div>
                    <div class="row  mt-4">
                      <div class="col-md-12">
                        <div class=" d-flex justify-content-end ">
-                         <p>No tienes una cuenta ? <a [routerLink]="['/Registrer']">Registrate</a></p>
+                        <p>No tienes cuenta? <a [routerLink]="['/RegistrarUser']">Registrate</a></p>
                        </div>
                      </div>
                    </div>
