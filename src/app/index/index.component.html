@@ -11,7 +11,7 @@
                   </button>
               </div>
               <div class="nav-links">
-                  <a href="/app/notifications" class="nav-link">Notificaciones</a>
+                  <a href="/app/notifications" class="nav-link">Notificaciones:</a>
                   <button class="add-project-icon bi bi-plus-circle-fill"> Añadir tarea</button>
               </div>
               <ul class="menu">
@@ -20,14 +20,14 @@
                   <li><a href="/app/upcoming">Próximo</a></li>
                   <li><a href="/app/filters-labels">Filtros y Etiquetas</a></li>
                   <li class="nav-item " *ngIf="isLogged">
-                    <a>Registrar Proyecto</a>
+                    <a>Registrar Proyecto:</a>
                     <button class="nav-link text-dark add-project-icon bi bi-plus-circle-fill" (click)="openProjectForm()"  ></button>
                   </li>
               </ul>
               <br>
               <br>
               <div class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
-                <a class="nav-link text-dark" style="cursor: pointer;"><i class="bi bi-x-circle-fill"></i> Cerrar Sesión</a> <!-- Botón para cerrar sesión -->
+                <a class="nav-link text-dark" style="cursor: pointer;"><i class="bi bi-x-circle-fill"></i>Cerrar Sesión</a> <!-- Botón para cerrar sesión -->
               </div>
           </nav>
       </div>
@@ -38,7 +38,7 @@
   <ng-template #loggedOut>
     <div class="welcome-container">
       <h5 class="welcome-message">¡Bienvenido a TodoIst!</h5>
-      <p class="welcome-submessage">Organiza tus tareas y alcanza tus objetivos de manera sencilla y eficiente.</p>
+      <p class="welcome-submessage">Organiza tus tareas y alcanza tus objetivos de manera sencilla y eficiente</p>
       <img class="welcome-image" src="https://logowik.com/content/uploads/images/todoist3192.jpg" alt="Imagen de bienvenida">
     </div>
   </ng-template>

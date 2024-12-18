@@ -9,11 +9,11 @@
       </div>
       <div class="row mt-5">
         <mat-form-field class="col-md-12">
-          <mat-label>Nombre</mat-label>
+          <mat-label>Nombre:</mat-label>
           <input matInput [(ngModel)]="proyecto.nombre" formControlName="validaNombre">
           <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaNombre.touched">
             <span *ngIf="formRegistrar.controls.validaNombre.hasError('required')">
-              Ingrese proyecto
+              Ingresar proyecto:
             </span>
             <span *ngIf="formRegistrar.controls.validaNombre.hasError('pattern')">
               Debe contener mínimo 3 carácteres
