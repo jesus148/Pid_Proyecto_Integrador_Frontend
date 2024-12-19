@@ -10,11 +10,12 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { UsuarioRegistrer } from '../../models/UsuariosRegistrer';
 
 @Component({
   selector: 'app-actualizar-task',
   standalone: true,
-  imports: [MenuComponent , AppMaterialModule, FormsModule, CommonModule, MenuComponent,ReactiveFormsModule ,RouterLink,MatCheckboxModule, FormsModule],
+  imports: [MenuComponent , AppMaterialModule, FormsModule, CommonModule, MenuComponent,ReactiveFormsModule ,RouterLink,MatCheckboxModule, ],
   templateUrl: './actualizar-task.component.html',
   styleUrl: './actualizar-task.component.css'
 })
@@ -28,7 +29,8 @@ export class ActualizarTaskComponent {
     fechaVencimiento:new Date(),
     prioridad:-1,
     estadoTarea:'',
-    proyecto: { idProyecto: -1 }
+    proyecto: { idProyecto: -1 },
+    usuario: { idUsuario: -1  || null}
   }
 
 
@@ -43,6 +45,7 @@ export class ActualizarTaskComponent {
 
 
   listaProyect:Proyecto[]=[];
+  lstUser: UsuarioRegistrer[]=[];
 
   formRegistrar = this.formBuilder.group({
     validaNombre: ['', [Validators.required]],
@@ -51,6 +54,7 @@ export class ActualizarTaskComponent {
     validaprioridad: ['', [Validators.min(1)]],
     validaProyecto: ['', [Validators.min(1)]],
     validaEstadoTarea: ['', [Validators.min(1)]],
+    validaUsuarios: ['', [Validators.min(1)]]
 });
 
 
@@ -60,6 +64,10 @@ export class ActualizarTaskComponent {
   ){
     this.proyecService.GetProyect().subscribe(
       x => this.lstProyecto = x
+    );
+
+    this.proyecService.GetUserkAll().subscribe(
+      x => this.lstUser = x
     );
     // this.objtarea = data;
     this.objtarea = { ...data, proyecto: { ...data.proyecto } };
@@ -72,6 +80,7 @@ export class ActualizarTaskComponent {
 
     console.log(">>> actualiazar [inicio]");
 
+
     this.proyecService.UpdateTask(this.objtarea).subscribe(
       x => {
         Swal.fire({
@@ -79,14 +88,17 @@ export class ActualizarTaskComponent {
           title: 'Resultado del Registro',
           text: x.mensaje,
         });
-        this.objtarea={
-          nombre:'',
-          descripcion:'',
-          estadoTarea:'',
-          fechaVencimiento:new Date(),
-          prioridad:-1,
-          proyecto: { idProyecto: -1 }
-        }
+        // this.objtarea={
+        //   nombre:'',
+        //   descripcion:'',
+        //   estadoTarea:'',
+        //   fechaVencimiento:new Date(),
+        //   prioridad:-1,
+        //   proyecto: { idProyecto: -1 },
+        //   usuario:{
+        //     idUsuario:-1
+        //   }
+        // }
       },
     );
   }

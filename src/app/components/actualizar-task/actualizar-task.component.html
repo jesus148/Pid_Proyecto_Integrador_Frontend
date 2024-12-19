@@ -95,6 +95,25 @@
        </mat-hint>
      </mat-form-field>
    </div>
+
+   <div class="row mt-4">
+    <mat-form-field class="col-md-12">
+      <mat-label>Usuario</mat-label>
+      <mat-select *ngIf="objtarea.usuario" [(ngModel)]="objtarea.usuario.idUsuario"   formControlName="validaUsuarios" >
+       <mat-option value="-1"> [Seleccione] </mat-option>
+       <mat-option *ngFor="let x of lstUser" [value]="x.idUsuario">
+        {{x.nombreCompleto}}
+      </mat-option>
+   </mat-select>
+      <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaUsuarios.touched">
+        <span *ngIf="formRegistrar.controls.validaUsuarios.hasError('min')" >
+            Seleccione un Usuario
+        </span>
+    </mat-hint>
+  </mat-form-field>
+</div>
+
+
      <div class="row m-3">
        <div class="col-12 text-center m-1">
          <button mat-flat-button color="warn" class="my-class" [disabled]="formRegistrar.invalid" [mat-dialog-close]="1" (click)="actualiazar()">Actualizar</button>

@@ -1,0 +1,71 @@
+<div class="todo ">
+
+
+  <div class="container d-flex justify-content-center align-items-center w-50  bg-light">
+
+    <form action="" class="p-2  " [formGroup]="formRegistrar">
+     <div class="row m-2">
+       <div class="col-md-12 ">
+         <h3>Invitar Usuario</h3>
+       </div>
+     </div>
+     <div class="row mt-5">
+       <mat-form-field class="col-md-12">
+         <mat-label>Descripción</mat-label>
+        <input  matInput [(ngModel)] ="objUserProyecto.descripcion"    formControlName="ValidaDescripcion" >
+        <mat-hint style="color: red;" *ngIf="formRegistrar.controls.ValidaDescripcion.touched" >
+         <span *ngIf="formRegistrar.controls.ValidaDescripcion.hasError('required')" >
+             Ingrese Descripcion
+         </span>
+     </mat-hint>
+     </mat-form-field>
+     </div>
+     <div class="row mt-4">
+      <mat-form-field class="col-md-12">
+        <mat-label>Proyecto</mat-label>
+        <mat-select *ngIf="objUserProyecto.proyecto" [(ngModel)]="objUserProyecto.proyecto.idProyecto"   formControlName="validaProyecto" >
+         <mat-option value="-1"> [Seleccione] </mat-option>
+         <mat-option *ngFor="let x of lstProyecto" [value]="x.idProyecto">
+             {{x.nombre}}
+         </mat-option>
+     </mat-select>
+        <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaProyecto.touched">
+          <span *ngIf="formRegistrar.controls.validaProyecto.hasError('min')" >
+              Seleccione un Proyecto
+          </span>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="row mt-4">
+    <mat-form-field class="col-md-12">
+      <mat-label>Usuario</mat-label>
+      <mat-select *ngIf="objUserProyecto.usuario" [(ngModel)]="objUserProyecto.usuario.idUsuario"   formControlName="validaUsuario" >
+       <mat-option value="-1"> [Seleccione] </mat-option>
+       <mat-option *ngFor="let x of lstUser" [value]="x.idUsuario">
+           {{x.nombreCompleto}}
+       </mat-option>
+   </mat-select>
+      <mat-hint style="color: red;"  *ngIf="formRegistrar.controls.validaUsuario.touched">
+        <span *ngIf="formRegistrar.controls.validaUsuario.hasError('min')" >
+            Seleccione un Usuario
+        </span>
+    </mat-hint>
+  </mat-form-field>
+</div>
+     <div class="row m-3">
+       <div class="col-12 text-center m-1">
+         <button mat-flat-button color="warn" class="my-class"  [mat-dialog-close]="1" (click)="Registrar()">Registrar</button>
+
+         <button mat-button
+         type="submit"
+         color="primary"
+         [mat-dialog-close]="2"
+         >Salir </button>
+       </div>
+     </div>
+   </form>
+
+</div>
+
+
+</div>
