@@ -1,0 +1,39 @@
+<div class="todo">
+
+
+  <div class="container d-flex justify-content-center align-items-center w-25  bg-light">
+
+    <form action="" class="p-2 " [formGroup]="formRegistrar" >
+     <div class="row m-2">
+       <div class="col-md-12 ">
+         <h3>Registrar Comentario</h3>
+       </div>
+     </div>
+     <div class="row mt-5">
+       <mat-form-field class="col-md-12">
+         <mat-label>Descripción</mat-label>
+        <input  matInput [(ngModel)] ="objComentario.descripcion"    formControlName="ValidaDescripcion" >
+        <mat-hint style="color: red;" *ngIf="formRegistrar.controls.ValidaDescripcion.touched" >
+         <span *ngIf="formRegistrar.controls.ValidaDescripcion.hasError('required')" >
+             Ingrese Descripcion
+         </span>
+     </mat-hint>
+     </mat-form-field>
+     </div>
+     <div class="row m-3">
+       <div class="col-12 text-center m-1">
+         <button mat-flat-button color="warn" class="my-class"  [mat-dialog-close]="1" (click)="Registrar()">Registrar</button>
+
+         <button mat-button
+         type="submit"
+         color="primary"
+         [mat-dialog-close]="2"
+         >Salir </button>
+       </div>
+     </div>
+   </form>
+
+</div>
+
+
+</div>

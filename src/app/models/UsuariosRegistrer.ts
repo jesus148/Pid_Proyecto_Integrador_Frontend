@@ -9,4 +9,5 @@ export class UsuarioRegistrer {
   password?: string;
   email?:string;
   fechaNacimiento?:Date;
+  nombreCompleto?:string;
 }

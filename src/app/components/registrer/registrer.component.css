@@ -1,13 +1,10 @@
-.todo {
+.todo{
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to right, #ff8a00, #e52e71);
-  position: relative;
+  width: 100%;
+  background-image: url('../../../assets/fondo.jpg');
+  background-position: center;
+  background-size: cover;
 }
-
 
 .boton_Registrar{
   width: 170px;
@@ -16,11 +13,10 @@
 }
 
 
-.container {
-  background-color: #f9f9f9; /* Cambia el blanco puro (#ffffff) a uno que combine con el logo */
+.container{
   width: 27% !important;
   border-radius: 32px;
-  height: auto;
+ height: auto;
 }
 
 .container  h3{
@@ -44,9 +40,8 @@
 }
 
 .link-azul {
-  color: #1976d2;
-  font-weight: bold;
-  text-decoration: none;
+  color: blue;
+  text-decoration: underline;
   transition: color 0.3s ease;
 }
 
@@ -62,24 +57,4 @@
 
 .todo p a {
   text-decoration: none;
-}
-
-
-.logo-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px; /* Separación del título */
-}
-
-.logo-background {
-  background-color: #ffffff; /* Asegura que sea el mismo color que el formulario */
-  padding: 10px; /* Espaciado alrededor del logo */
-  border-radius: 12px; /* Para integrarse con el diseño del formulario */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para mejorar visualización */
-}
-
-.logo {
-  max-width: 150px; /* Ajusta el tamaño */
-  height: auto;
-  border-radius: 10px; /* Opcional: bordes redondeados */
 }

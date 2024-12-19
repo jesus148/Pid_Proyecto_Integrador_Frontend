@@ -18,6 +18,7 @@ import { IndexComponent } from './index/index.component';
 import { RegistrarProyectoComponent } from './components/registrar-proyecto/registrar-proyecto.component';
 import { RegistrarTareaComponent } from './components/registrar-tarea/registrar-tarea.component';
 import { ListTareasComponent } from './components/list-tareas/list-tareas.component';
+import { ListadoUserComponent } from './components/listado-user/listado-user.component';
 
 
 
@@ -39,6 +40,7 @@ export const routes: Routes = [
 
   {path:"verCrudEjemplo", component:CrudEjemploComponent },
   {path:"verConsultaEjemplo", component: ConsultaEjemploComponent },
+  {path:"ListadoUsuario", component: ListadoUserComponent },
 
 
   { path: 'login', component: LoginComponent },

@@ -1,0 +1,77 @@
+<div class="todo">
+  <app-menu></app-menu>
+
+  <div class="container">
+
+
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field>
+          <mat-label>Dni</mat-label>
+          <input matInput [(ngModel)]="filtro">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <button mat-flat-button color="white" class="boton_Registrar  rounded-pill" (click)="obtenerUsuarios()">Buscar</button>
+      </div>
+      <div class="col-8">
+
+      </div>
+    </div>
+
+
+    <table mat-table  class="mat-elevation-z8" [dataSource]="dataSource">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="nombres">
+        <th mat-header-cell *matHeaderCellDef> nombres </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="apellidos">
+        <th mat-header-cell *matHeaderCellDef> apellidos </th>
+        <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="dni">
+        <th mat-header-cell *matHeaderCellDef> dni </th>
+        <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="nombreCompleto">
+        <th mat-header-cell *matHeaderCellDef> nombre Completo </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </td>
+      </ng-container>
+      <!-- Weight Column -->
+
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <!-- desenvolsando data  -->
+        <td mat-cell *matCellDef="let element" class="acciones" >
+          <mat-icon   class="btnEdit me-2" (click)="updateEstado(element)"    matTooltip="Editar" style="cursor: pointer;">person_add</mat-icon>
+         </td>
+      </ng-container>
+
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="usuario">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.proyecto.idUsuario.nombres}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+
+  </div>
+</div>
+
